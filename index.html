@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Excellanz Education — World-Class Online Degrees</title>
+  <link rel="icon" href="images/favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="css/style.css"/>
@@ -24,19 +25,13 @@
     <img src="images/logonew.png" alt="Excellanz Education" />
   </a>
   <div class="header-right">
-
-    <a href="tel:+919876543210" class="header-phone">
-      <i class="fas fa-phone-alt"></i>
-      <span>+91 98765 43210</span>
-    </a>
-
-    <a href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Excellanz%20Education"
+    <a href="https://wa.me/97142737074?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Excellanz%20Education"
        class="btn-whatsapp" target="_blank">
       <i class="fab fa-whatsapp"></i>
       <span>WhatsApp Us</span>
     </a>
 
-    <a href="tel:+919876543210" class="btn-call-now">
+    <a href="tel:+971 4 273 7074" class="btn-call-now">
       <i class="fas fa-phone-alt"></i>
       <span>Call Now</span>
     </a>
@@ -46,7 +41,7 @@
 
 
   <!-- HERO SECTION -->
-  <section class="hero" id="home">
+  <section class="hero" id="vantaWaves">
 
     <div class="hero-bg">
       <div class="hero-bg-base"></div>
@@ -113,170 +108,217 @@
       <div class="hero-right" id="enquire">
         <div class="form-card">
 
-          <h2 class="form-title">Get Free Counselling</h2>
+          <!-- Header -->
+          <div class="form-card-header">
+            <div class="form-card-tag">
+              <i class="fas fa-headset"></i> Free Counselling
+            </div>
+            <h2 class="form-title">Start Your <span>Journey</span></h2>
+            <p class="form-subtitle">Get expert guidance — 100% free, no obligations</p>
+          </div>
 
-          <form id="enquiryForm">
+          <form id="enquiryForm" novalidate>
 
             <!-- Full Name -->
-            <div class="form-group">
-              <label class="form-label">Full Name <span class="req">*</span></label>
-              <div class="input-wrap">
-                <i class="fas fa-user input-icon"></i>
-                <input type="text" class="form-input" placeholder="Enter your full name" required />
+            <div class="hf-field">
+              <label class="hf-label">Full Name <span class="hf-req">*</span></label>
+              <div class="hf-input-wrap">
+                <i class="fas fa-user hf-icon"></i>
+                <input type="text" class="hf-input" id="hfName"
+                  placeholder="Enter your full name" required />
               </div>
             </div>
 
             <!-- Phone -->
-            <div class="form-group">
-              <label class="form-label">Phone Number <span class="req">*</span></label>
-              <div class="phone-row">
-                <select class="phone-code">
-                <!-- India -->
-                <option value="+91">🇮🇳 +91</option>
-
-                <!-- GCC Countries -->
-                <option value="+971">🇦🇪 +971</option>
-                <option value="+966">🇸🇦 +966</option>
-                <option value="+974">🇶🇦 +974</option>
-                <option value="+965">🇰🇼 +965</option>
-                <option value="+968">🇴🇲 +968</option>
-                <option value="+973">🇧🇭 +973</option>
-
-                <!-- Canada -->
-                <option value="+1">🇨🇦 +1</option>
-
-                <!-- Singapore -->
-                <option value="+65">🇸🇬 +65</option>
-
-                <!-- United Kingdom -->
-                <option value="+44">🇬🇧 +44</option>
-                </select>
-
-                <div class="input-wrap" style="flex:1">
-                  <i class="fas fa-phone input-icon"></i>
-                  <input type="tel" class="form-input" placeholder="Mobile number"
+            <div class="hf-field">
+              <label class="hf-label">Phone Number <span class="hf-req">*</span></label>
+              <div class="hf-phone-row">
+                <div class="hf-code-wrap">
+                  <select class="hf-code-select" id="hfPhoneCode">
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+966">🇸🇦 +966</option>
+                    <option value="+974">🇶🇦 +974</option>
+                    <option value="+965">🇰🇼 +965</option>
+                    <option value="+968">🇴🇲 +968</option>
+                    <option value="+973">🇧🇭 +973</option>
+                    <option value="+1">🇨🇦 +1</option>
+                    <option value="+65">🇸🇬 +65</option>
+                    <option value="+44">🇬🇧 +44</option>
+                  </select>
+                  <i class="fas fa-chevron-down hf-code-arrow"></i>
+                </div>
+                <div class="hf-input-wrap hf-phone-input">
+                  <i class="fas fa-phone hf-icon"></i>
+                  <input type="tel" class="hf-input" id="hfPhone"
+                    placeholder="Mobile number"
                     pattern="[0-9]{10}" maxlength="10" required />
                 </div>
               </div>
             </div>
 
             <!-- Email -->
-            <div class="form-group">
-              <label class="form-label">Email Address <span class="req">*</span></label>
-              <div class="input-wrap">
-                <i class="fas fa-envelope input-icon"></i>
-                <input type="email" class="form-input" placeholder="you@example.com" required />
+            <div class="hf-field">
+              <label class="hf-label">Email Address <span class="hf-req">*</span></label>
+              <div class="hf-input-wrap">
+                <i class="fas fa-envelope hf-icon"></i>
+                <input type="email" class="hf-input" id="hfEmail"
+                  placeholder="you@example.com" required />
               </div>
             </div>
 
             <!-- Course Selector -->
-            <div class="form-group">
-              <label class="form-label">Select Program <span class="req">*</span></label>
+            <div class="hf-field">
+              <label class="hf-label">Select Program <span class="hf-req">*</span></label>
 
-              <div class="course-tabs">
-                <button type="button" class="course-tab active" data-tab="pg">PG</button>
-                <button type="button" class="course-tab" data-tab="ug">UG</button>
-                <button type="button" class="course-tab" data-tab="diploma">Diploma</button>
+              <!-- Level Tabs -->
+              <div class="hf-course-tabs">
+                <button type="button" class="hf-ctab hf-ctab-active" data-tab="pg">
+                  <i class="fas fa-user-graduate"></i> PG
+                </button>
+                <button type="button" class="hf-ctab" data-tab="ug">
+                  <i class="fas fa-graduation-cap"></i> UG
+                </button>
+                <button type="button" class="hf-ctab" data-tab="secondary">
+                  <i class="fas fa-school"></i> Secondary
+                </button>
+                <button type="button" class="hf-ctab" data-tab="doctorate">
+                  <i class="fas fa-microscope"></i> PhD
+                </button>
               </div>
 
-              <div class="course-options" id="tab-pg">
-                <label class="course-option">
-                  <input type="radio" name="course" value="MBA" required />
-                  <span class="course-pill">
-                    <i class="fas fa-briefcase"></i>
-                    <strong>MBA</strong>
+              <!-- PG Options -->
+              <div class="hf-course-options" id="hf-tab-pg">
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="MBA" />
+                  <span class="hf-pill">
+                    <i class="fas fa-briefcase"></i> MBA
                   </span>
                 </label>
-                <label class="course-option">
-                  <input type="radio" name="course" value="MCA" />
-                  <span class="course-pill">
-                    <i class="fas fa-laptop-code"></i>
-                    <strong>MCA</strong>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="MCA" />
+                  <span class="hf-pill">
+                    <i class="fas fa-laptop-code"></i> MCA
                   </span>
                 </label>
-                <label class="course-option">
-                  <input type="radio" name="course" value="MCom" />
-                  <span class="course-pill">
-                    <i class="fas fa-chart-line"></i>
-                    <strong>M.Com</strong>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="MA" />
+                  <span class="hf-pill">
+                    <i class="fas fa-book-reader"></i> MA
                   </span>
                 </label>
-                <label class="course-option">
-                  <input type="radio" name="course" value="PhD" />
-                  <span class="course-pill">
-                    <i class="fas fa-graduation-cap"></i>
-                    <strong>PhD</strong>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="M.Com" />
+                  <span class="hf-pill">
+                    <i class="fas fa-coins"></i> M.Com
                   </span>
                 </label>
-              </div>
-
-              <div class="course-options hidden" id="tab-ug">
-                <label class="course-option">
-                  <input type="radio" name="course" value="BBA" />
-                  <span class="course-pill">
-                    <i class="fas fa-briefcase"></i>
-                    <strong>BBA</strong>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="M.Sc" />
+                  <span class="hf-pill">
+                    <i class="fas fa-atom"></i> M.Sc
                   </span>
                 </label>
-                <label class="course-option">
-                  <input type="radio" name="course" value="BCA" />
-                  <span class="course-pill">
-                    <i class="fas fa-laptop-code"></i>
-                    <strong>BCA</strong>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="MSW" />
+                  <span class="hf-pill">
+                    <i class="fas fa-hands-helping"></i> MSW
                   </span>
                 </label>
-                <label class="course-option">
-                  <input type="radio" name="course" value="BCom" />
-                  <span class="course-pill">
-                    <i class="fas fa-chart-bar"></i>
-                    <strong>B.Com</strong>
-                  </span>
-                </label>
-                <label class="course-option">
-                  <input type="radio" name="course" value="BA" />
-                  <span class="course-pill">
-                    <i class="fas fa-book"></i>
-                    <strong>BA</strong>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="MCS" />
+                  <span class="hf-pill">
+                    <i class="fas fa-microchip"></i> MCS
                   </span>
                 </label>
               </div>
 
-              <div class="course-options hidden" id="tab-diploma">
-                <label class="course-option">
-                  <input type="radio" name="course" value="DBM" />
-                  <span class="course-pill">
-                    <i class="fas fa-building"></i>
-                    <strong>Diploma — Business Mgmt</strong>
+              <!-- UG Options -->
+              <div class="hf-course-options hf-hidden" id="hf-tab-ug">
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="BBA" />
+                  <span class="hf-pill">
+                    <i class="fas fa-briefcase"></i> BBA
                   </span>
                 </label>
-                <label class="course-option">
-                  <input type="radio" name="course" value="DDM" />
-                  <span class="course-pill">
-                    <i class="fas fa-bullhorn"></i>
-                    <strong>Diploma — Digital Marketing</strong>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="BCA" />
+                  <span class="hf-pill">
+                    <i class="fas fa-laptop-code"></i> BCA
                   </span>
                 </label>
-                <label class="course-option">
-                  <input type="radio" name="course" value="DIT" />
-                  <span class="course-pill">
-                    <i class="fas fa-microchip"></i>
-                    <strong>Diploma — IT</strong>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="BA" />
+                  <span class="hf-pill">
+                    <i class="fas fa-palette"></i> BA
+                  </span>
+                </label>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="B.Com" />
+                  <span class="hf-pill">
+                    <i class="fas fa-chart-bar"></i> B.Com
+                  </span>
+                </label>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="B.Sc" />
+                  <span class="hf-pill">
+                    <i class="fas fa-flask"></i> B.Sc
+                  </span>
+                </label>
+              </div>
+
+              <!-- Secondary Options -->
+              <div class="hf-course-options hf-hidden" id="hf-tab-secondary">
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="10th" />
+                  <span class="hf-pill">
+                    <i class="fas fa-book"></i> 10th
+                  </span>
+                </label>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="12th" />
+                  <span class="hf-pill">
+                    <i class="fas fa-book-open"></i> 12th
+                  </span>
+                </label>
+                <label class="hf-course-opt">
+                  <input type="radio" name="hf_course" value="BPP" />
+                  <span class="hf-pill">
+                    <i class="fas fa-road"></i> BPP
+                  </span>
+                </label>
+              </div>
+
+              <!-- Doctorate Options -->
+              <div class="hf-course-options hf-hidden" id="hf-tab-doctorate">
+                <label class="hf-course-opt hf-course-opt-wide">
+                  <input type="radio" name="hf_course" value="PhD" />
+                  <span class="hf-pill">
+                    <i class="fas fa-atom"></i> Doctor of Philosophy (Ph.D)
                   </span>
                 </label>
               </div>
             </div>
 
-
             <!-- Submit -->
-            <button type="submit" class="btn-submit" id="submitBtn">
-              <i class="fas fa-paper-plane"></i>
-              Get Free Counselling Now
+            <button type="submit" class="hf-submit" id="hfSubmitBtn">
+              <span class="hf-submit-text">
+                <i class="fas fa-paper-plane"></i>
+                Get Free Counselling Now
+              </span>
+              <span class="hf-submit-loading" style="display:none;">
+                <i class="fas fa-spinner fa-spin"></i> Sending...
+              </span>
             </button>
 
-          </form>
+            <p class="hf-privacy">
+              <i class="fas fa-lock"></i> Your data is safe and never shared
+            </p>
 
+          </form>
         </div>
       </div>
+
       <!-- end hero-right -->
 
     </div>
@@ -725,12 +767,1407 @@
 
 
 
+<!-- =============================================
+     SECTION 5: COURSE LISTING
+     Class prefix: crs-
+============================================= -->
+<section class="crs-section" id="programs">
+
+  <!-- BG Decor -->
+  <div class="crs-bg-decor">
+    <div class="crs-bg-orb crs-orb-a"></div>
+    <div class="crs-bg-orb crs-orb-b"></div>
+  </div>
+
+  <!-- Section Header -->
+  <div class="crs-header">
+    <div class="crs-section-tag">
+      <i class="fas fa-layer-group"></i> Our Programs
+    </div>
+    <h2 class="crs-title">
+      Find Your Perfect<br/>
+      <span class="crs-gold-text">Degree Program</span>
+    </h2>
+    <p class="crs-subtitle">
+      Globally accredited degrees across Bachelors, Masters, Secondary &
+      Doctorate levels — 100% online and flexible.
+    </p>
+  </div>
+
+  <!-- Filter Tabs -->
+  <div class="crs-tabs-wrap">
+    <div class="crs-tabs" role="tablist">
+      <button class="crs-tab crs-tab-active" data-filter="bachelors" role="tab">
+        <i class="fas fa-graduation-cap"></i> Bachelors
+        <span class="crs-tab-count">5</span>
+      </button>
+      <button class="crs-tab" data-filter="masters" role="tab">
+        <i class="fas fa-user-graduate"></i> Masters
+        <span class="crs-tab-count">7</span>
+      </button>
+      <button class="crs-tab" data-filter="secondary" role="tab">
+        <i class="fas fa-school"></i> Secondary
+        <span class="crs-tab-count">3</span>
+      </button>
+      <button class="crs-tab" data-filter="doctorate" role="tab">
+        <i class="fas fa-microscope"></i> Doctorate
+        <span class="crs-tab-count">1</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ======== CATEGORY: BACHELORS ======== -->
+  <!-- No crs-block-hidden — visible by default ✅ -->
+  <div class="crs-category-block" data-category="bachelors">
+    <div class="crs-cat-label">
+      <div class="crs-cat-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div>
+        <h3 class="crs-cat-title">Bachelors Degree</h3>
+        <p class="crs-cat-desc">Undergraduate programs — 3 years · UGC Entitled · Globally recognized</p>
+      </div>
+      <div class="crs-cat-badge">5 Programs</div>
+    </div>
+
+    <div class="crs-grid crs-grid-3">
+
+      <div class="crs-card crs-card-hidden" data-category="bachelors">
+        <div class="crs-card-top crs-color-ba">
+          <div class="crs-card-icon"><i class="fas fa-palette"></i></div>
+          <div class="crs-card-abbr">BA</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-ug">Undergraduate</span>
+          <h4 class="crs-course-name">Bachelor of Arts</h4>
+          <p class="crs-course-full">BA</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 3 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="bachelors">
+        <div class="crs-card-top crs-color-bba">
+          <div class="crs-card-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="crs-card-abbr">BBA</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-ug">Undergraduate</span>
+          <h4 class="crs-course-name">Bachelor of Business Administration</h4>
+          <p class="crs-course-full">BBA</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 3 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="bachelors">
+        <div class="crs-card-top crs-color-bca">
+          <div class="crs-card-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="crs-card-abbr">BCA</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-ug">Undergraduate</span>
+          <h4 class="crs-course-name">Bachelor of Computer Applications</h4>
+          <p class="crs-course-full">BCA</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 3 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="bachelors">
+        <div class="crs-card-top crs-color-bsc">
+          <div class="crs-card-icon"><i class="fas fa-flask"></i></div>
+          <div class="crs-card-abbr">B.Sc</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-ug">Undergraduate</span>
+          <h4 class="crs-course-name">Bachelor of Science</h4>
+          <p class="crs-course-full">B.Sc</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 3 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="bachelors">
+        <div class="crs-card-top crs-color-bcom">
+          <div class="crs-card-icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="crs-card-abbr">B.Com</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-ug">Undergraduate</span>
+          <h4 class="crs-course-name">Bachelor of Commerce</h4>
+          <p class="crs-course-full">B.Com</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 3 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======== CATEGORY: MASTERS — hidden by default ======== -->
+  <div class="crs-category-block crs-block-hidden" data-category="masters">
+    <div class="crs-cat-label">
+      <div class="crs-cat-icon crs-cat-icon-pg"><i class="fas fa-user-graduate"></i></div>
+      <div>
+        <h3 class="crs-cat-title">Masters Degree</h3>
+        <p class="crs-cat-desc">Postgraduate programs — 2 years · NAAC Accredited · WES Recognized</p>
+      </div>
+      <div class="crs-cat-badge">7 Programs</div>
+    </div>
+
+    <div class="crs-grid crs-grid-3">
+
+      <div class="crs-card crs-card-hidden" data-category="masters">
+        <div class="crs-card-top crs-color-ma">
+          <div class="crs-card-icon"><i class="fas fa-book-reader"></i></div>
+          <div class="crs-card-abbr">MA</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-pg">Postgraduate</span>
+          <h4 class="crs-course-name">Master of Arts</h4>
+          <p class="crs-course-full">MA</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 2 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="masters">
+        <div class="crs-card-top crs-color-mba">
+          <div class="crs-card-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="crs-card-abbr">MBA</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-pg">Postgraduate</span>
+          <h4 class="crs-course-name">Master of Business Administration</h4>
+          <p class="crs-course-full">MBA</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 2 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="masters">
+        <div class="crs-card-top crs-color-mca">
+          <div class="crs-card-icon"><i class="fas fa-code"></i></div>
+          <div class="crs-card-abbr">MCA</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-pg">Postgraduate</span>
+          <h4 class="crs-course-name">Master of Computer Applications</h4>
+          <p class="crs-course-full">MCA</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 2 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="masters">
+        <div class="crs-card-top crs-color-msc">
+          <div class="crs-card-icon"><i class="fas fa-atom"></i></div>
+          <div class="crs-card-abbr">M.Sc</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-pg">Postgraduate</span>
+          <h4 class="crs-course-name">Master of Science</h4>
+          <p class="crs-course-full">M.Sc</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 2 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="masters">
+        <div class="crs-card-top crs-color-mcom">
+          <div class="crs-card-icon"><i class="fas fa-coins"></i></div>
+          <div class="crs-card-abbr">M.Com</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-pg">Postgraduate</span>
+          <h4 class="crs-course-name">Master of Commerce</h4>
+          <p class="crs-course-full">M.Com</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 2 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="masters">
+        <div class="crs-card-top crs-color-msw">
+          <div class="crs-card-icon"><i class="fas fa-hands-helping"></i></div>
+          <div class="crs-card-abbr">MSW</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-pg">Postgraduate</span>
+          <h4 class="crs-course-name">Master of Social Work</h4>
+          <p class="crs-course-full">MSW</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 2 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="masters">
+        <div class="crs-card-top crs-color-mcs">
+          <div class="crs-card-icon"><i class="fas fa-microchip"></i></div>
+          <div class="crs-card-abbr">MCS</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-pg">Postgraduate</span>
+          <h4 class="crs-course-name">Master of Computer Science</h4>
+          <p class="crs-course-full">MCS</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 2 Years</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======== CATEGORY: SECONDARY — hidden by default ======== -->
+  <div class="crs-category-block crs-block-hidden" data-category="secondary">
+    <div class="crs-cat-label">
+      <div class="crs-cat-icon crs-cat-icon-sec"><i class="fas fa-school"></i></div>
+      <div>
+        <h3 class="crs-cat-title">Secondary / Higher Secondary</h3>
+        <p class="crs-cat-desc">Foundation level programs — 10th, 12th & Bridge programs</p>
+      </div>
+      <div class="crs-cat-badge">3 Programs</div>
+    </div>
+
+    <div class="crs-grid crs-grid-3">
+
+      <div class="crs-card crs-card-hidden" data-category="secondary">
+        <div class="crs-card-top crs-color-10th">
+          <div class="crs-card-icon"><i class="fas fa-book"></i></div>
+          <div class="crs-card-abbr">10th</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-sec">Secondary</span>
+          <h4 class="crs-course-name">10th Standard</h4>
+          <p class="crs-course-full">Secondary School Certificate</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 1 Year</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-certificate"></i> Certified</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="secondary">
+        <div class="crs-card-top crs-color-12th">
+          <div class="crs-card-icon"><i class="fas fa-book-open"></i></div>
+          <div class="crs-card-abbr">12th</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-sec">Higher Secondary</span>
+          <h4 class="crs-course-name">12th Standard</h4>
+          <p class="crs-course-full">Higher Secondary Certificate</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 1 Year</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-certificate"></i> Certified</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crs-card crs-card-hidden" data-category="secondary">
+        <div class="crs-card-top crs-color-bpp">
+          <div class="crs-card-icon"><i class="fas fa-road"></i></div>
+          <div class="crs-card-abbr">BPP</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-sec">Bridge Program</span>
+          <h4 class="crs-course-name">BPP</h4>
+          <p class="crs-course-full">Bachelor's Preparatory Program</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 6 Months</span>
+            <span><i class="fas fa-laptop"></i> Online</span>
+            <span><i class="fas fa-certificate"></i> Certified</span>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======== CATEGORY: DOCTORATE — hidden by default ======== -->
+  <div class="crs-category-block crs-block-hidden" data-category="doctorate">
+    <div class="crs-cat-label">
+      <div class="crs-cat-icon crs-cat-icon-phd"><i class="fas fa-microscope"></i></div>
+      <div>
+        <h3 class="crs-cat-title">Doctorate</h3>
+        <p class="crs-cat-desc">Research-level program — Globally recognized PhD degree</p>
+      </div>
+      <div class="crs-cat-badge">1 Program</div>
+    </div>
+
+    <div class="crs-grid crs-grid-phd">
+      <div class="crs-card crs-card-phd-featured crs-card-hidden" data-category="doctorate">
+        <div class="crs-phd-glow"></div>
+        <div class="crs-card-top crs-color-phd">
+          <div class="crs-card-icon"><i class="fas fa-atom"></i></div>
+          <div class="crs-card-abbr">Ph.D</div>
+          <div class="crs-phd-ribbon">Most Prestigious</div>
+        </div>
+        <div class="crs-card-body">
+          <span class="crs-level-badge crs-badge-phd">Doctorate</span>
+          <h4 class="crs-course-name">Doctor of Philosophy</h4>
+          <p class="crs-course-full">Ph.D — Research Doctoral Program</p>
+          <div class="crs-course-meta">
+            <span><i class="fas fa-clock"></i> 3–5 Years</span>
+            <span><i class="fas fa-laptop"></i> Online / Blended</span>
+            <span><i class="fas fa-globe"></i> WES Approved</span>
+          </div>
+          <div class="crs-phd-highlights">
+            <div class="crs-phd-hi"><i class="fas fa-check-circle"></i> Original Research</div>
+            <div class="crs-phd-hi"><i class="fas fa-check-circle"></i> Expert Supervisors</div>
+            <div class="crs-phd-hi"><i class="fas fa-check-circle"></i> International Publications</div>
+            <div class="crs-phd-hi"><i class="fas fa-check-circle"></i> Global Recognition</div>
+          </div>
+          <div class="crs-card-actions">
+            <a href="#enquire" class="crs-btn-enquire crs-btn-enquire-lg">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
   <!-- WHATSAPP FLOAT -->
   <a href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Excellanz%20Education"
      class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+  <!-- =============================================
+     ENQUIRY POPUP MODAL
+     Class prefix: enq-
+============================================= -->
+<div class="enq-overlay" id="enqOverlay">
+  <div class="enq-modal" id="enqModal">
 
-  <script src="js/script.js"></script>
+    <!-- Close -->
+    <button class="enq-close" id="enqClose">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Left Branding Panel -->
+    <div class="enq-left">
+      <div class="enq-brand-icon">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3 class="enq-brand-title">
+        Start Your<br/><span>Journey Today</span>
+      </h3>
+      <p class="enq-brand-desc">
+        Our academic counsellor will reach out within 24 hours — completely free.
+      </p>
+      <div class="enq-feats">
+        <div class="enq-feat"><i class="fas fa-circle-check"></i> Free Counselling</div>
+        <div class="enq-feat"><i class="fas fa-circle-check"></i> No Hidden Fees</div>
+        <div class="enq-feat"><i class="fas fa-circle-check"></i> Globally Accredited</div>
+        <div class="enq-feat"><i class="fas fa-circle-check"></i> Flexible Learning</div>
+      </div>
+      <div class="enq-left-glow"></div>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="enq-right">
+
+      <div class="enq-form-head">
+        <h4 class="enq-form-title">Enquire Now</h4>
+        <p class="enq-form-sub">We'll get back to you within 24 hours</p>
+      </div>
+
+      <form class="enq-form" id="enqForm" novalidate>
+
+        <!-- Name Row -->
+        <div class="enq-row">
+          <div class="enq-field">
+            <label class="enq-label">First Name <span class="enq-req">*</span></label>
+            <div class="enq-wrap">
+              <i class="fas fa-user enq-ico"></i>
+              <input type="text" class="enq-input" id="enqFirstName"
+                placeholder="John" required />
+            </div>
+            <span class="enq-err" id="enqFirstNameErr">Enter your first name</span>
+          </div>
+          <div class="enq-field">
+            <label class="enq-label">Last Name <span class="enq-req">*</span></label>
+            <div class="enq-wrap">
+              <i class="fas fa-user enq-ico"></i>
+              <input type="text" class="enq-input" id="enqLastName"
+                placeholder="Doe" required />
+            </div>
+            <span class="enq-err" id="enqLastNameErr">Enter your last name</span>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="enq-field">
+          <label class="enq-label">Email Address <span class="enq-req">*</span></label>
+          <div class="enq-wrap">
+            <i class="fas fa-envelope enq-ico"></i>
+            <input type="email" class="enq-input" id="enqEmail"
+              placeholder="john@example.com" required />
+          </div>
+          <span class="enq-err" id="enqEmailErr">Enter a valid email</span>
+        </div>
+
+        <!-- Phone -->
+        <div class="enq-field">
+          <label class="enq-label">Phone Number <span class="enq-req">*</span></label>
+          <div class="enq-phone-row">
+            <div class="enq-code-wrap">
+              <select class="enq-code-select" id="enqPhoneCode">
+                <option value="+91">🇮🇳 +91</option>
+                <option value="+971">🇦🇪 +971</option>
+                <option value="+966">🇸🇦 +966</option>
+                <option value="+974">🇶🇦 +974</option>
+                <option value="+965">🇰🇼 +965</option>
+                <option value="+968">🇴🇲 +968</option>
+                <option value="+973">🇧🇭 +973</option>
+                <option value="+1">🇨🇦 +1</option>
+                <option value="+65">🇸🇬 +65</option>
+                <option value="+44">🇬🇧 +44</option>
+              </select>
+              <i class="fas fa-chevron-down enq-code-arrow"></i>
+            </div>
+            <div class="enq-wrap enq-phone-input">
+              <i class="fas fa-phone enq-ico"></i>
+              <input type="tel" class="enq-input" id="enqPhone"
+                placeholder="Mobile number" required />
+            </div>
+          </div>
+          <span class="enq-err" id="enqPhoneErr">Enter a valid phone number</span>
+        </div>
+
+        <!-- Course — Pill Selector -->
+        <div class="enq-field">
+          <label class="enq-label">Interested Program <span class="enq-req">*</span></label>
+
+          <div class="enq-course-tabs">
+            <button type="button" class="enq-ctab enq-ctab-active" data-tab="pg">
+              <i class="fas fa-user-graduate"></i> PG
+            </button>
+            <button type="button" class="enq-ctab" data-tab="ug">
+              <i class="fas fa-graduation-cap"></i> UG
+            </button>
+            <button type="button" class="enq-ctab" data-tab="secondary">
+              <i class="fas fa-school"></i> Secondary
+            </button>
+            <button type="button" class="enq-ctab" data-tab="doctorate">
+              <i class="fas fa-microscope"></i> PhD
+            </button>
+          </div>
+
+          <!-- Hidden input to store selected value -->
+          <input type="hidden" id="enqCourseVal" name="course" />
+          <span class="enq-err" id="enqCourseErr">Please select a program</span>
+
+          <!-- PG -->
+          <div class="enq-pills-wrap" id="enq-tab-pg">
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Master of Business Administration (MBA)" />
+              <span class="enq-pill"><i class="fas fa-briefcase"></i> MBA</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Master of Computer Applications (MCA)" />
+              <span class="enq-pill"><i class="fas fa-laptop-code"></i> MCA</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Master of Arts (MA)" />
+              <span class="enq-pill"><i class="fas fa-book-reader"></i> MA</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Master of Commerce (M.Com)" />
+              <span class="enq-pill"><i class="fas fa-coins"></i> M.Com</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Master of Science (M.Sc)" />
+              <span class="enq-pill"><i class="fas fa-atom"></i> M.Sc</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Master of Social Work (MSW)" />
+              <span class="enq-pill"><i class="fas fa-hands-helping"></i> MSW</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Master of Computer Science (MCS)" />
+              <span class="enq-pill"><i class="fas fa-microchip"></i> MCS</span>
+            </label>
+          </div>
+
+          <!-- UG -->
+          <div class="enq-pills-wrap enq-hidden" id="enq-tab-ug">
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Bachelor of Business Administration (BBA)" />
+              <span class="enq-pill"><i class="fas fa-briefcase"></i> BBA</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Bachelor of Computer Applications (BCA)" />
+              <span class="enq-pill"><i class="fas fa-laptop-code"></i> BCA</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Bachelor of Arts (BA)" />
+              <span class="enq-pill"><i class="fas fa-palette"></i> BA</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Bachelor of Commerce (B.Com)" />
+              <span class="enq-pill"><i class="fas fa-chart-bar"></i> B.Com</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="Bachelor of Science (B.Sc)" />
+              <span class="enq-pill"><i class="fas fa-flask"></i> B.Sc</span>
+            </label>
+          </div>
+
+          <!-- Secondary -->
+          <div class="enq-pills-wrap enq-hidden" id="enq-tab-secondary">
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="10th Standard" />
+              <span class="enq-pill"><i class="fas fa-book"></i> 10th</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="12th Standard" />
+              <span class="enq-pill"><i class="fas fa-book-open"></i> 12th</span>
+            </label>
+            <label class="enq-pill-opt">
+              <input type="radio" name="enq_course" value="BPP" />
+              <span class="enq-pill"><i class="fas fa-road"></i> BPP</span>
+            </label>
+          </div>
+
+          <!-- Doctorate -->
+          <div class="enq-pills-wrap enq-hidden" id="enq-tab-doctorate">
+            <label class="enq-pill-opt enq-pill-opt-full">
+              <input type="radio" name="enq_course" value="Doctor of Philosophy (Ph.D)" />
+              <span class="enq-pill"><i class="fas fa-atom"></i> Doctor of Philosophy (Ph.D)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="enq-submit" id="enqSubmit">
+          <span class="enq-submit-text">
+            <i class="fas fa-paper-plane"></i> Submit Enquiry
+          </span>
+          <span class="enq-submit-loading" style="display:none;">
+            <i class="fas fa-spinner fa-spin"></i> Sending...
+          </span>
+        </button>
+
+        <p class="enq-privacy">
+          <i class="fas fa-lock"></i> Your information is safe and never shared
+        </p>
+
+      </form>
+
+      <!-- Success -->
+      <div class="enq-success" id="enqSuccess" style="display:none;">
+        <div class="enq-success-icon"><i class="fas fa-circle-check"></i></div>
+        <h4>Enquiry Submitted!</h4>
+        <p>Our counsellor will contact you within <strong>24 hours</strong>.</p>
+        <button class="enq-success-close" id="enqSuccessClose">
+          <i class="fas fa-times"></i> Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SECTION 6: TESTIMONIALS — SPOTLIGHT MODEL
+     Class prefix: tst-
+============================================= -->
+<section class="tst-section" id="vantaBg" id="testimonials" >
+
+  <!-- BG -->
+  <div class="tst-bg">
+    <div class="tst-glow-a"></div>
+    <div class="tst-glow-b"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="tst-header">
+    <div class="tst-tag">
+      <span class="tst-dot-pulse"></span> Student Stories
+    </div>
+    <h2 class="tst-title">
+      What Our Students<br/>
+      <em>Actually Say</em>
+    </h2>
+  </div>
+
+  <!-- Stats Strip -->
+  <div class="tst-stats-strip">
+    <div class="tst-stat">
+      <strong>4.9★</strong><span>Overall Rating</span>
+    </div>
+    <div class="tst-strip-sep"></div>
+    <div class="tst-stat">
+      <strong>50K+</strong><span>Happy Students</span>
+    </div>
+    <div class="tst-strip-sep"></div>
+    <div class="tst-stat">
+      <strong>15+</strong><span>Countries</span>
+    </div>
+    <div class="tst-strip-sep"></div>
+    <div class="tst-stat">
+      <strong>98%</strong><span>Satisfaction</span>
+    </div>
+  </div>
+
+  <!-- Spotlight Stage -->
+  <div class="tst-stage">
+
+    <!-- Big Quote Display -->
+    <div class="tst-spotlight">
+      <div class="tst-spotlight-inner" id="tstSpotlight">
+
+        <!-- Slide 0 -->
+        <div class="tst-slide tst-active" data-index="0">
+          <div class="tst-slide-quote">
+            <i class="fas fa-quote-left tst-q-icon"></i>
+            <p>Excellanz made my MBA journey seamless while working full-time in Dubai. The flexible schedule and expert faculty helped me balance everything effortlessly. A truly world-class education that opened global doors for me.</p>
+          </div>
+          <!-- Person Info -->
+          <div class="tst-slide-footer">
+            <div class="tst-slide-person">
+              <div class="tst-person-av-ring">
+                <div class="tst-person-av">
+                  <img src="images/test.png" alt="Arjun Ramesh" />
+                </div>
+              </div>
+              <div class="tst-person-info">
+                <h5 class="tst-person-name">Arjun Ramesh</h5>
+                <p class="tst-person-loc">
+                  <i class="fas fa-location-dot"></i> Dubai, UAE
+                </p>
+              </div>
+            </div>
+            <div class="tst-slide-right">
+              <div class="tst-slide-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="tst-slide-course">MBA — Masters</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 1 -->
+        <div class="tst-slide" data-index="1">
+          <div class="tst-slide-quote">
+            <i class="fas fa-quote-left tst-q-icon"></i>
+            <p>Completed my BCA 100% online from Kochi. WES-recognized and opened international doors I never imagined. The support team was available around the clock — I never felt alone in my journey.</p>
+          </div>
+          <div class="tst-slide-footer">
+            <div class="tst-slide-person">
+              <div class="tst-person-av-ring">
+                <div class="tst-person-av">
+                  <img src="images/test.png" alt="Priya Menon" />
+                </div>
+              </div>
+              <div class="tst-person-info">
+                <h5 class="tst-person-name">Priya Menon</h5>
+                <p class="tst-person-loc">
+                  <i class="fas fa-location-dot"></i> Kochi, India
+                </p>
+              </div>
+            </div>
+            <div class="tst-slide-right">
+              <div class="tst-slide-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="tst-slide-course">BCA — Bachelors</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="tst-slide" data-index="2">
+          <div class="tst-slide-quote">
+            <i class="fas fa-quote-left tst-q-icon"></i>
+            <p>Pursuing my PhD from Riyadh was possible thanks to Excellanz's blended model and world-class supervisors. The international publications support was exceptional. Best decision of my academic career.</p>
+          </div>
+          <div class="tst-slide-footer">
+            <div class="tst-slide-person">
+              <div class="tst-person-av-ring">
+                <div class="tst-person-av">
+                  <img src="images/test.png" alt="Sanjay Kumar" />
+                </div>
+              </div>
+              <div class="tst-person-info">
+                <h5 class="tst-person-name">Sanjay Kumar</h5>
+                <p class="tst-person-loc">
+                  <i class="fas fa-location-dot"></i> Riyadh, Saudi Arabia
+                </p>
+              </div>
+            </div>
+            <div class="tst-slide-right">
+              <div class="tst-slide-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="tst-slide-course">Ph.D — Doctorate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="tst-slide" data-index="3">
+          <div class="tst-slide-quote">
+            <i class="fas fa-quote-left tst-q-icon"></i>
+            <p>As a working mother in Abu Dhabi, I never thought higher education was possible again. Excellanz changed that completely. NAAC accredited, UK NARIC recognized — the counselling team was incredibly supportive.</p>
+          </div>
+          <div class="tst-slide-footer">
+            <div class="tst-slide-person">
+              <div class="tst-person-av-ring">
+                <div class="tst-person-av">
+                  <img src="images/test.png" alt="Fatima Al-Rashid" />
+                </div>
+              </div>
+              <div class="tst-person-info">
+                <h5 class="tst-person-name">Fatima Al-Rashid</h5>
+                <p class="tst-person-loc">
+                  <i class="fas fa-location-dot"></i> Abu Dhabi, UAE
+                </p>
+              </div>
+            </div>
+            <div class="tst-slide-right">
+              <div class="tst-slide-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="tst-slide-course">MCA — Masters</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="tst-slide" data-index="4">
+          <div class="tst-slide-quote">
+            <i class="fas fa-quote-left tst-q-icon"></i>
+            <p>My MSW is UK NARIC recognised — which was critical for my career in London. The faculty truly understands the international student experience and the placement support exceeded every expectation I had.</p>
+          </div>
+          <div class="tst-slide-footer">
+            <div class="tst-slide-person">
+              <div class="tst-person-av-ring">
+                <div class="tst-person-av">
+                  <img src="images/test.png" alt="Nisha Patel" />
+                </div>
+              </div>
+              <div class="tst-person-info">
+                <h5 class="tst-person-name">Nisha Patel</h5>
+                <p class="tst-person-loc">
+                  <i class="fas fa-location-dot"></i> London, UK
+                </p>
+              </div>
+            </div>
+            <div class="tst-slide-right">
+              <div class="tst-slide-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="tst-slide-course">MSW — Masters</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end spotlight-inner -->
+
+      <!-- Progress bar -->
+      <div class="tst-progress-wrap">
+        <div class="tst-progress-bar" id="tstProgress"></div>
+      </div>
+
+    </div><!-- end spotlight -->
+
+    <!-- Dot indicators -->
+    <div class="tst-dots-row" id="tstDotsRow"></div>
+
+  </div><!-- end stage -->
+
+</section>
+
+<!-- =============================================
+     SECTION 7: CONTACT / OFFICES
+     Class prefix: cnt-
+============================================= -->
+<section class="cnt-section" id="contact">
+
+  <!-- BG -->
+  <div class="cnt-bg">
+    <div class="cnt-glow-a"></div>
+    <div class="cnt-glow-b"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="cnt-header">
+    <div class="cnt-tag">
+      <span class="cnt-tag-dot"></span>
+      Global Offices
+    </div>
+    <h2 class="cnt-title">
+      We're Right<br/>
+      <em>Near You</em>
+    </h2>
+    <p class="cnt-sub">
+      With offices across Canada, UK, Singapore and the GCC —
+      expert counselling is always within reach.
+    </p>
+    <!-- Email strip -->
+    <a href="mailto:info@excellanzeducation.org" class="cnt-email-pill">
+      <i class="fas fa-envelope"></i>
+      info@excellanzeducation.org
+    </a>
+  </div>
+
+  <!-- Region Tabs -->
+  <div class="cnt-tabs-wrap">
+    <div class="cnt-tabs" id="cntTabs">
+      <button class="cnt-tab cnt-tab-active" data-region="all">
+        <i class="fas fa-globe"></i> All Offices
+      </button>
+      <button class="cnt-tab" data-region="canada">
+        🇨🇦 Canada
+      </button>
+      <button class="cnt-tab" data-region="uk">
+        🇬🇧 United Kingdom
+      </button>
+      <button class="cnt-tab" data-region="singapore">
+        🇸🇬 Singapore
+      </button>
+      <button class="cnt-tab" data-region="uae">
+        🇦🇪 UAE
+      </button>
+      <button class="cnt-tab" data-region="gcc">
+        🌙 GCC
+      </button>
+    </div>
+  </div>
+
+  <!-- Office Cards Grid -->
+  <div class="cnt-grid" id="cntGrid">
+
+    <!-- ===== CANADA ===== -->
+    <div class="cnt-card" data-region="canada">
+      <div class="cnt-card-flag">🇨🇦</div>
+      <div class="cnt-card-badge cnt-badge-hq">
+        <i class="fas fa-star"></i> Head Office
+      </div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">Canada — Branch 1</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No: 2032, Zemlar Offices<br/>
+          1225 Kennedy Rd, Scarborough<br/>
+          Ontario, Canada M1P 4Y1
+        </p>
+        <a href="tel:+16476795113" class="cnt-phone">
+          <i class="fas fa-phone"></i> +1 (647) 679-5113
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+16476795113" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/16476795113" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+      </div>
+    </div>
+
+    <div class="cnt-card" data-region="canada">
+      <div class="cnt-card-flag">🇨🇦</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">Canada — Branch 2</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No: 28-103, Zemlar Offices<br/>
+          55 Village Centre Plaza<br/>
+          Mississauga, Ontario, Canada L4Z 1V9
+        </p>
+        <a href="tel:+16479374781" class="cnt-phone">
+          <i class="fas fa-phone"></i> +1 (647) 937-4781
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+16479374781" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/16479374781" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== UNITED KINGDOM ===== -->
+    <div class="cnt-card" data-region="uk">
+      <div class="cnt-card-flag">🇬🇧</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">United Kingdom — Branch 1</h4>
+        <p class="cnt-card-name">Excellanz Education Inc Ltd</p>
+        <p class="cnt-card-addr">
+          208 D REGUS, 314 Midsummer Court<br/>
+          Midsummer Boulevard, Milton Keynes<br/>
+          Near London, UK MK9 2UB
+        </p>
+        <a href="tel:+447536940303" class="cnt-phone">
+          <i class="fas fa-phone"></i> +44 7536 940303
+        </a>
+        <a href="tel:+441908737300" class="cnt-phone">
+          <i class="fas fa-phone"></i> +44 1908 737300
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+447536940303" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/447536940303" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+      </div>
+    </div>
+
+    <div class="cnt-card" data-region="uk">
+      <div class="cnt-card-flag">🇬🇧</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">United Kingdom — Branch 2</h4>
+        <p class="cnt-card-name">Excellanz Education Inc Ltd</p>
+        <p class="cnt-card-addr">
+          004 REGUS, Meridian Business Park<br/>
+          1 Meridian South, Leicester<br/>
+          United Kingdom LE191WY
+        </p>
+        <a href="tel:+447536940302" class="cnt-phone">
+          <i class="fas fa-phone"></i> +44 7536 940302
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+447536940302" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/447536940302" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== SINGAPORE ===== -->
+    <div class="cnt-card" data-region="singapore">
+      <div class="cnt-card-flag">🇸🇬</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">Singapore</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No. 07-54, Paya Lebar Square<br/>
+          60 Paya Lebar Road<br/>
+          Singapore 409051
+        </p>
+        <a href="tel:+6580132207" class="cnt-phone">
+          <i class="fas fa-phone"></i> +65 8013 2207
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+6580132207" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/6580132207" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== UAE — DUBAI ===== -->
+    <div class="cnt-card" data-region="uae">
+      <div class="cnt-card-flag">🇦🇪</div>
+      <div class="cnt-card-badge cnt-badge-corp">
+        <i class="fas fa-building"></i> Corporate
+      </div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">UAE — Dubai</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No 106, Al Khaleej Building<br/>
+          Near Paragon Restaurant & Saravana Bhavan<br/>
+          Al Karama, Dubai, UAE
+        </p>
+        <a href="tel:+97142737074" class="cnt-phone">
+          <i class="fas fa-phone"></i> +971 4 273 7074
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+97142737074" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/97142737074" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== UAE — SHARJAH ===== -->
+    <div class="cnt-card" data-region="uae">
+      <div class="cnt-card-flag">🇦🇪</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">UAE — Sharjah</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No 503 C, Al Marzooqi Towers<br/>
+          Near Medcare Hospital & Noor Masjid<br/>
+          Sharjah, UAE
+        </p>
+        <a href="tel:+97165691678" class="cnt-phone">
+          <i class="fas fa-phone"></i> +971 6 569 1678
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+97165691678" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/97165691678" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== UAE — ABU DHABI ===== -->
+    <div class="cnt-card" data-region="uae">
+      <div class="cnt-card-flag">🇦🇪</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">UAE — Abu Dhabi</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No: 1404, Business Centre Building<br/>
+          Hamdan Bin Mohammed Street<br/>
+          Behind Nehal Hotel, Al Zahiyah E13<br/>
+          Abu Dhabi, UAE
+        </p>
+        <a href="tel:+97126675255" class="cnt-phone">
+          <i class="fas fa-phone"></i> +971 2 667 5255
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+97126675255" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/97126675255" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== UAE — AL AIN ===== -->
+    <div class="cnt-card" data-region="uae">
+      <div class="cnt-card-flag">🇦🇪</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">UAE — Al Ain</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No. 402, Floor M1<br/>
+          Al Karji Building<br/>
+          Behind ADIB Bank, near Clock Tower<br/>
+          Al Ain, UAE
+        </p>
+        <a href="tel:+971566837119" class="cnt-phone">
+          <i class="fas fa-phone"></i> +971 56 683 7119
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+971566837119" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/971566837119" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== KUWAIT ===== -->
+    <div class="cnt-card" data-region="gcc">
+      <div class="cnt-card-flag">🇰🇼</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">Kuwait</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No: 11, Floor 5th<br/>
+          Burj Al Tujjar<br/>
+          13 Abdulaziz Hamad Al Saqer St<br/>
+          Mirqab, Kuwait City
+        </p>
+        <a href="tel:+96590022352" class="cnt-phone">
+          <i class="fas fa-phone"></i> +965 9002 2352
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+96590022352" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/96590022352" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== SAUDI ===== -->
+    <div class="cnt-card" data-region="gcc">
+      <div class="cnt-card-flag">🇸🇦</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">Saudi Arabia — KSA</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Suite No: M4, Future Bright Investments<br/>
+          Building No: 7726, Ibn Khateer St.<br/>
+          King Abdul Aziz, Sulaymaniyah<br/>
+          Riyadh, K.S.A
+        </p>
+        <a href="tel:+966536621302" class="cnt-phone">
+          <i class="fas fa-phone"></i> +966 536 621302
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+966536621302" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/966536621302" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== BAHRAIN ===== -->
+    <div class="cnt-card" data-region="gcc">
+      <div class="cnt-card-flag">🇧🇭</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">Bahrain</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          Block-317, Road-1702<br/>
+          Building-135, First Floor<br/>
+          Smartway Facilities, PO Box 1331<br/>
+          Manama, Bahrain
+        </p>
+        <a href="tel:+97338812832" class="cnt-phone">
+          <i class="fas fa-phone"></i> +973 3881 2832
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+97338812832" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/97338812832" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== OMAN ===== -->
+    <div class="cnt-card" data-region="gcc">
+      <div class="cnt-card-flag">🇴🇲</div>
+      <div class="cnt-card-body">
+        <h4 class="cnt-card-country">Oman</h4>
+        <p class="cnt-card-name">Excellanz Education</p>
+        <p class="cnt-card-addr">
+          DRC Building, MBD RUWI<br/>
+          Building No-1287, Office No 12<br/>
+          Way No-2516, Block No-135<br/>
+          PO 112, Oman
+        </p>
+        <a href="tel:+96894415356" class="cnt-phone">
+          <i class="fas fa-phone"></i> +968 9441 5356
+        </a>
+      </div>
+      <div class="cnt-card-actions">
+        <a href="tel:+96894415356" class="cnt-act-btn">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/96894415356" target="_blank" class="cnt-act-btn cnt-act-wa">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+
+  <!-- Global Email CTA -->
+  <div class="cnt-cta-strip">
+    <i class="fas fa-headset cnt-cta-icon"></i>
+    <div class="cnt-cta-text">
+      <strong>Can't find your nearest office?</strong>
+      <span>Email us and we'll connect you with the right counsellor.</span>
+    </div>
+    <a href="mailto:info@excellanzeducation.org" class="cnt-cta-btn">
+      <i class="fas fa-envelope"></i> Email Us Now
+    </a>
+  </div>
+
+</section>
+
+<!-- =============================================
+     FOOTER 3D LOGO BANNER
+     Class prefix: fb-
+============================================= -->
+<div class="fb-banner" id="fb-banner">
+
+  <!-- Three.js renders here -->
+  <canvas id="fbCanvas"></canvas>
+
+  <!-- Tap hint -->
+  <div class="fb-hint" id="fbHint">
+    <i class="fas fa-hand-pointer"></i>
+    <span>Touch to animate</span>
+  </div>
+
+  <!-- Bottom tagline -->
+  <div class="fb-tagline">
+    <span>Empowering Careers.</span>
+    <span class="fb-tag-gold">Recognised Globally.</span>
+  </div>
+
+</div>
+
+
+
+
+<!-- Three.js first — Vanta depends on it -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<!-- Vanta NET effect -->
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+
+<script>
+  VANTA.NET({
+    el: "#vantaBg",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200,
+    minWidth: 200,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    color:           0xC9A84C,   /* gold lines — matches your theme */
+    backgroundColor: 0x07070F,   /* your site dark bg */
+    points:          12.0,
+    maxDistance:     21.0,
+    spacing:         16.0,
+    showDots:        false
+  });
+
+  VANTA.WAVES({
+    el: "#vantaWaves",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200,
+    minWidth: 200,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    color:  0x07070F,   /* your site dark bg */
+    shininess: 8.0,
+    waveHeight: 7.0,
+    waveSpeed: 1.50
+  });
+</script>
+
+
+
+
+<script src="js/script.js"></script>
 </body>
 </html>
