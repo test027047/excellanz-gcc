@@ -555,7 +555,7 @@
       </div>
 
       <div class="exz-marquee-item">
-        <div class="exz-accred-logo">
+        <div class="exz-marquee-item">
           <i class="fas fa-star"></i>
           <div>
             <strong>NIRF Ranked</strong>
@@ -577,34 +577,6 @@
     </div>
     <div class="exz-marquee-fade exz-fade-left"></div>
     <div class="exz-marquee-fade exz-fade-right"></div>
-  </div>
-
-  <!-- Stats row -->
-  <div class="exz-stats-row">
-    <div class="exz-stat-item">
-      <span class="exz-stat-num" data-count="15">0</span><span class="exz-stat-sym">+</span>
-      <span class="exz-stat-text">Countries</span>
-    </div>
-    <div class="exz-stat-sep"></div>
-    <div class="exz-stat-item">
-      <span class="exz-stat-num" data-count="7">0</span><span class="exz-stat-sym">+</span>
-      <span class="exz-stat-text">University Partners</span>
-    </div>
-    <div class="exz-stat-sep"></div>
-    <div class="exz-stat-item">
-      <span class="exz-stat-num" data-count="50000">0</span><span class="exz-stat-sym">+</span>
-      <span class="exz-stat-text">Students Enrolled</span>
-    </div>
-    <div class="exz-stat-sep"></div>
-    <div class="exz-stat-item">
-      <span class="exz-stat-num" data-count="30">0</span><span class="exz-stat-sym">+</span>
-      <span class="exz-stat-text">Programs Offered</span>
-    </div>
-    <div class="exz-stat-sep"></div>
-    <div class="exz-stat-item">
-      <span class="exz-stat-num" data-count="98">0</span><span class="exz-stat-sym">%</span>
-      <span class="exz-stat-text">Satisfaction Rate</span>
-    </div>
   </div>
 
 </section>
@@ -1342,6 +1314,13 @@
           <!-- Hidden input to store selected value -->
           <input type="hidden" id="enqCourseVal" name="course" />
           <span class="enq-err" id="enqCourseErr">Please select a program</span>
+
+          <!-- Visible selected program (read-only) -->
+          <div class="enq-course-display">
+            <i class="fas fa-graduation-cap"></i>
+            <input type="text" id="enqCourseDisplay" class="enq-course-display-input"
+              value="" placeholder="Selected program will appear here" readonly />
+          </div>
 
           <!-- PG -->
           <div class="enq-pills-wrap" id="enq-tab-pg">
@@ -2141,8 +2120,8 @@
     minWidth: 200,
     scale: 1.0,
     scaleMobile: 1.0,
-    color:           0xC9A84C,   /* gold lines — matches your theme */
-    backgroundColor: 0x07070F,   /* your site dark bg */
+    color:           0x4F46E5,   /* indigo lines */
+    backgroundColor: 0xF6F8FF,   /* light theme bg */
     points:          12.0,
     maxDistance:     21.0,
     spacing:         16.0,
@@ -2158,13 +2137,13 @@
     minWidth: 200,
     scale: 1.0,
     scaleMobile: 1.0,
-    color:  0x07070F,   /* your site dark bg */
-    shininess: 8.0,
-    waveHeight: 7.0,
-    waveSpeed: 1.50
+    color:  0xAEB8FF,   /* higher-contrast wave tint */
+    backgroundColor: 0xF6F8FF,
+    shininess: 45.0,
+    waveHeight: 16.0,
+    waveSpeed: 1.10
   });
 </script>
-
 
 
 

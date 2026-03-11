@@ -70,7 +70,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const header = document.querySelector('.top-header');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 10) {
-    header.style.boxShadow = '0 4px 30px rgba(201, 168, 76, 0.12)';
+    header.style.boxShadow = '0 4px 30px rgba(79, 70, 229, 0.16)';
   } else {
     header.style.boxShadow = 'none';
   }
@@ -344,6 +344,9 @@ window.addEventListener('scroll', () => {
       const hidden = document.getElementById('enqCourseVal');
       if (hidden) hidden.value = radio.value;
 
+      const display = document.getElementById('enqCourseDisplay');
+      if (display) display.value = radio.value;
+
       // Clear course error
       const field = document.getElementById('enqCourseVal')
         ?.closest('.enq-field');
@@ -406,6 +409,9 @@ window.addEventListener('scroll', () => {
           r.checked = true;
           const hidden = document.getElementById('enqCourseVal');
           if (hidden) hidden.value = r.value;
+
+          const display = document.getElementById('enqCourseDisplay');
+          if (display) display.value = r.value;
         }
       });
     }
@@ -702,13 +708,13 @@ window.addEventListener('scroll', () => {
   // Ambient
   scene.add(new THREE.AmbientLight(0xffffff, 0.3));
 
-  // Main gold key light
-  const keyLight = new THREE.DirectionalLight(0xF5D060, 2.5);
+  // Main key light (accent)
+  const keyLight = new THREE.DirectionalLight(0x22D3EE, 2.3);
   keyLight.position.set(3, 4, 5);
   scene.add(keyLight);
 
-  // Fill light — warm
-  const fillLight = new THREE.PointLight(0xC9A84C, 1.8, 20);
+  // Fill light — accent
+  const fillLight = new THREE.PointLight(0x4F46E5, 1.6, 20);
   fillLight.position.set(-4, 2, 3);
   scene.add(fillLight);
 
@@ -728,7 +734,7 @@ window.addEventListener('scroll', () => {
   const ptGeo = new THREE.BufferGeometry();
   ptGeo.setAttribute('position', new THREE.BufferAttribute(ptPositions, 3));
   const ptMat = new THREE.PointsMaterial({
-    color: 0xC9A84C,
+    color: 0x4F46E5,
     size: 0.03,
     transparent: true,
     opacity: 0.4,
@@ -781,7 +787,7 @@ window.addEventListener('scroll', () => {
       const glowTex = makeGlowTexture();
       const spriteMat = new THREE.SpriteMaterial({
         map: glowTex,
-        color: 0xC9A84C,
+        color: 0x4F46E5,
         transparent: true,
         opacity: 0.18,
         blending: THREE.AdditiveBlending,
@@ -811,9 +817,9 @@ window.addEventListener('scroll', () => {
     c.width   = c.height = 256;
     const ctx = c.getContext('2d');
     const g   = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
-    g.addColorStop(0,   'rgba(245,208,96,1)');
-    g.addColorStop(0.4, 'rgba(201,168,76,0.4)');
-    g.addColorStop(1,   'rgba(201,168,76,0)');
+    g.addColorStop(0,   'rgba(34,211,238,1)');
+    g.addColorStop(0.4, 'rgba(79,70,229,0.35)');
+    g.addColorStop(1,   'rgba(79,70,229,0)');
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, 256, 256);
     return new THREE.CanvasTexture(c);
