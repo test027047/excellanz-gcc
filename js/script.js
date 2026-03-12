@@ -130,61 +130,6 @@ window.addEventListener('scroll', () => {
 
 
 // =============================================
-// SECTION 4: USP CARD STAGGERED ENTRANCE
-// =============================================
-(function () {
-  const cards = document.querySelectorAll('.exz-usp-card');
-  if (!cards.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const card = entry.target;
-      const index = parseInt(card.dataset.index) || 0;
-
-      setTimeout(() => {
-        card.style.transition =
-          'opacity 0.6s ease, transform 0.6s cubic-bezier(0.23,1,0.32,1), ' +
-          'box-shadow 0.45s ease, border-color 0.35s ease, background 0.35s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, index * 100);
-
-      observer.unobserve(card);
-    });
-  }, { threshold: 0.12 });
-
-  cards.forEach(card => observer.observe(card));
-})();
-
-
-// =============================================
-// SECTION 4: CARD MOUSE TILT EFFECT
-// =============================================
-(function () {
-  const cards = document.querySelectorAll('.exz-usp-card');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rotX = ((y - cy) / cy) * -5;
-      const rotY = ((x - cx) / cx) * 5;
-      card.style.transform =
-        `translateY(-8px) scale(1.01) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'translateY(0) scale(1) rotateX(0deg) rotateY(0deg)';
-    });
-  });
-})();
-
-
-// =============================================
 // SECTION 5: COURSE FILTER TABS
 // =============================================
 (function () {
@@ -957,4 +902,74 @@ window.addEventListener('scroll', () => {
   animate();
 
 })();
+
+// =============================================
+// SECTION 4: WHY EXCELLANZ — Card Entrance
+// =============================================
+(function () {
+  const cards = document.querySelectorAll('.why-card, .why-quote-card');
+  if (!cards.length) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card  = entry.target;
+        const delay = (parseInt(card.dataset.index) || 0) * 100;
+        setTimeout(() => card.classList.add('why-card-show'), delay);
+        obs.unobserve(card);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  cards.forEach(card => obs.observe(card));
+})();
+
+
+// =============================================
+// SECTION 6: ADMISSION PROCESS — Animations
+// =============================================
+(function () {
+
+  // ── Step tracker fill
+  const fill = document.getElementById('admTrackFill');
+  const steps = document.querySelectorAll('.adm-step');
+
+  if (fill && steps.length) {
+    const trackObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate fill line
+          setTimeout(() => fill.classList.add('adm-fill-active'), 200);
+          // Stagger step nodes
+          steps.forEach((step, i) => {
+            setTimeout(() => step.classList.add('adm-step-show'), 200 + i * 160);
+          });
+          trackObs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    trackObs.observe(document.querySelector('.adm-track-wrap'));
+  }
+
+  // ── Step cards entrance
+  const cards = document.querySelectorAll('.adm-card');
+  if (!cards.length) return;
+
+  const cardObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card  = entry.target;
+        const delay = (parseInt(card.dataset.index) || 0) * 110;
+        setTimeout(() => card.classList.add('adm-card-show'), delay);
+        cardObs.unobserve(card);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  cards.forEach(card => cardObs.observe(card));
+
+})();
+
+
 
