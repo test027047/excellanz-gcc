@@ -1518,12 +1518,7 @@ body {
 .why-qc-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    160deg,
-    rgba(5,10,25,0.55) 0%,
-    rgba(5,10,25,0.70) 50%,
-    rgba(5,10,25,0.85) 100%
-  );
+  background: linear-gradient(160deg, rgb(194 202 229 / 55%) 0%, rgb(32 59 139 / 70%) 50%, rgb(4 37 136 / 85%) 100%);
   transition: background 0.5s ease;
   z-index: 1;
 }
