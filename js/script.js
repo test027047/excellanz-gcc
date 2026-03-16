@@ -1,4 +1,136 @@
 // =============================================
+// HERO — Particle Canvas System
+// =============================================
+(function () {
+  const canvas = document.getElementById('heroParticles');
+  const hero = document.getElementById('heroSection');
+  if (!canvas || !hero) return;
+
+  const ctx = canvas.getContext('2d');
+  const particles = [];
+  const PARTICLE_COUNT = 60;
+  const MAX_DIST = 120;
+  const mouse = { x: -1000, y: -1000 };
+
+  function resize() {
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  hero.addEventListener('mouseleave', () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
+  // Create particles
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 2 + 1,
+      alpha: Math.random() * 0.5 + 0.2,
+      color: Math.random() > 0.5 ? '34,211,238' : '79,70,229',
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Update & draw particles
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+
+      // Mouse gravitational pull
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 200) {
+        p.vx += dx * 0.00008;
+        p.vy += dy * 0.00008;
+      }
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // Wrap around edges
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+
+      // Damping
+      p.vx *= 0.999;
+      p.vy *= 0.999;
+
+      // Draw particle with glow
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
+      ctx.shadowColor = `rgba(${p.color},0.6)`;
+      ctx.shadowBlur = 8;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Connection lines
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const ddx = p.x - p2.x;
+        const ddy = p.y - p2.y;
+        const d = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (d < MAX_DIST) {
+          const lineAlpha = (1 - d / MAX_DIST) * 0.15;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(79,70,229,${lineAlpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+
+// =============================================
+// HERO — Mouse Parallax for Floating Shapes
+// =============================================
+(function () {
+  const hero = document.getElementById('heroSection');
+  const floaters = document.getElementById('heroFloaters');
+  if (!hero || !floaters) return;
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) / rect.width - 0.5;
+    const my = (e.clientY - rect.top) / rect.height - 0.5;
+
+    const children = floaters.children;
+    for (let i = 0; i < children.length; i++) {
+      const depth = 0.5 + (i % 3) * 0.4;
+      const tx = mx * 30 * depth;
+      const ty = my * 20 * depth;
+      children[i].style.transform += '';
+      children[i].style.setProperty('--px', tx + 'px');
+      children[i].style.setProperty('--py', ty + 'px');
+    }
+  });
+})();
+
+
+// =============================================
 // COURSE TAB SWITCHER
 // =============================================
 const courseTabs = document.querySelectorAll('.course-tab');
@@ -70,7 +202,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const header = document.querySelector('.top-header');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 10) {
-    header.style.boxShadow = '0 4px 30px rgba(79, 70, 229, 0.16)';
+    header.style.boxShadow = '0 4px 30px rgba(11, 18, 32, 0.45)';
   } else {
     header.style.boxShadow = 'none';
   }

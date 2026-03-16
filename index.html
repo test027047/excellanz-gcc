@@ -40,15 +40,28 @@
 </header>
 
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="vantaWaves">
+  <!-- HERO SECTION — 3D Motion Banner -->
+  <section class="hero" id="heroSection">
 
-    <div class="hero-bg">
-      <div class="hero-bg-base"></div>
-      <div class="hero-bg-grid"></div>
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
+    <!-- Particle canvas background -->
+    <canvas id="heroParticles"></canvas>
+
+    <!-- Floating 3D geometric shapes -->
+    <div class="hero-floaters" id="heroFloaters">
+      <div class="floater floater-hex floater-1"></div>
+      <div class="floater floater-tri floater-2"></div>
+      <div class="floater floater-circle floater-3"></div>
+      <div class="floater floater-ring floater-4"></div>
+      <div class="floater floater-hex floater-5"></div>
+      <div class="floater floater-dot floater-6"></div>
+      <div class="floater floater-tri floater-7"></div>
+      <div class="floater floater-ring floater-8"></div>
+      <div class="floater floater-circle floater-9"></div>
+      <div class="floater floater-dot floater-10"></div>
     </div>
+
+    <!-- Gradient mesh overlay -->
+    <div class="hero-gradient-mesh"></div>
 
     <div class="hero-inner">
 
@@ -57,26 +70,26 @@
 
         <h1 class="hero-title">
           Elevate Your Career with<br/>
-          <span class="gold-text">World-Class Online</span><br/>
+          <span class="gold-text shimmer-text">World-Class Online</span><br/>
           Degree Programs
         </h1>
 
         <div class="hero-usps">
-          <div class="hero-usp-item">
+          <div class="hero-usp-item" style="--usp-delay: 0.1s">
             <div class="usp-icon"><i class="fas fa-check"></i></div>
             <span>100% Online — Study from Anywhere, Anytime</span>
           </div>
-          <div class="hero-usp-item">
+          <div class="hero-usp-item" style="--usp-delay: 0.2s">
             <div class="usp-icon"><i class="fas fa-university"></i></div>
             <span>15+ Accredited University Partners</span>
           </div>
-          <div class="hero-usp-item">
+          <div class="hero-usp-item" style="--usp-delay: 0.3s">
             <div class="usp-icon"><i class="fas fa-wallet"></i></div>
-            <span>Affordable Fees with Easy EMI & Scholarship Options</span>
+            <span>Affordable Fees with Easy EMI &amp; Scholarship Options</span>
           </div>
-          <div class="hero-usp-item">
+          <div class="hero-usp-item" style="--usp-delay: 0.4s">
             <div class="usp-icon"><i class="fas fa-briefcase"></i></div>
-            <span>Dedicated Placement Assistance & Career Support</span>
+            <span>Dedicated Placement Assistance &amp; Career Support</span>
           </div>
         </div>
 
@@ -101,6 +114,7 @@
       <!-- RIGHT: LEAD FORM -->
       <div class="hero-right" id="enquire">
         <div class="form-card">
+          <div class="form-card-glow"></div>
 
           <!-- Header -->
           <div class="form-card-header">
@@ -625,12 +639,15 @@
 
   <!-- Header -->
   <div class="crs-header">
- 
+    <div class="crs-section-tag">
+      <i class="fas fa-sparkles"></i> Explore Programs
+    </div>
     <h2 class="crs-title">
       Find Your Perfect<br/>
       <span class="crs-gold-text">Degree Program</span>
     </h2>
-   
+    <p class="crs-subtitle">Choose from globally recognized undergraduate, postgraduate &amp; doctoral programs delivered through our world-class university partners.</p>
+    <div class="crs-title-line"></div>
   </div>
 
   <!-- Filter Tabs -->
@@ -1061,8 +1078,7 @@
             <span class="why-tag-pill">Part-Time</span>
           </div>
         </div>
-      </div>
-      <div class="why-card-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>     
     </div>
 
     <!-- Card 2 -->
@@ -1085,8 +1101,7 @@
             <span class="why-tag-pill">UGC</span>
           </div>
         </div>
-      </div>
-      <div class="why-card-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>     
     </div>
 
     <!-- Card 3 -->
@@ -1109,8 +1124,7 @@
             <span class="why-tag-pill">GCC</span>
           </div>
         </div>
-      </div>
-      <div class="why-card-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>     
     </div>
 
     <!-- Card 4 -->
@@ -1132,8 +1146,7 @@
             <span class="why-tag-pill">Mentoring</span>
           </div>
         </div>
-      </div>
-      <div class="why-card-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>      
     </div>
 
     <!-- Card 5 -->
@@ -1155,8 +1168,7 @@
             <span class="why-tag-pill">Scholarships</span>
           </div>
         </div>
-      </div>
-      <div class="why-card-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>      
     </div>
 
     <!-- =============================================
@@ -1222,34 +1234,11 @@
         </div>
       </div>
       <div class="why-globe-deco"><i class="fas fa-globe"></i></div>
-      <div class="why-card-arrow"><i class="fas fa-arrow-right"></i></div>
     </div>
 
   </div>
 
 
-  <!-- Stats Strip -->
-  <div class="why-stats-strip">
-    <div class="why-stat">
-      <span class="why-stat-num">15+</span>
-      <span class="why-stat-label">Countries</span>
-    </div>
-    <div class="why-stat-sep"></div>
-    <div class="why-stat">
-      <span class="why-stat-num">50K+</span>
-      <span class="why-stat-label">Students</span>
-    </div>
-    <div class="why-stat-sep"></div>
-    <div class="why-stat">
-      <span class="why-stat-num">16+</span>
-      <span class="why-stat-label">Programs</span>
-    </div>
-    <div class="why-stat-sep"></div>
-    <div class="why-stat">
-      <span class="why-stat-num">98%</span>
-      <span class="why-stat-label">Satisfaction</span>
-    </div>
-  </div>
 
 </section>
 
@@ -1475,7 +1464,7 @@
       </div>
       <div class="adm-banner-actions">
         <a href="#enquire" class="hf-submit crs-btn-enquire">
-          <i class="fas fa-paper-plane"></i> Apply Now — Free
+          <i class="fas fa-paper-plane"></i> Apply Now
         </a>
 
         <a href="https://wa.me/your-number" class="adm-btn-whatsapp" target="_blank">
@@ -2403,10 +2392,11 @@
 <!-- Three.js first — Vanta depends on it -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
-<!-- Vanta NET effect -->
+<!-- Vanta NET effect (footer) -->
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+<!-- Vanta GLOBE effect (hero) -->
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
 
 <script>
   VANTA.NET({
@@ -2418,16 +2408,16 @@
     minWidth: 200,
     scale: 1.0,
     scaleMobile: 1.0,
-    color:           0x4F46E5,   /* indigo lines */
-    backgroundColor: 0xF6F8FF,   /* light theme bg */
+    color:           0x4F46E5,
+    backgroundColor: 0xF6F8FF,
     points:          12.0,
     maxDistance:     21.0,
     spacing:         16.0,
     showDots:        false
   });
 
-  VANTA.WAVES({
-    el: "#vantaWaves",
+  VANTA.GLOBE({
+    el: "#heroSection",
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
@@ -2435,11 +2425,13 @@
     minWidth: 200,
     scale: 1.0,
     scaleMobile: 1.0,
-    color:  0xAEB8FF,   /* higher-contrast wave tint */
-    backgroundColor: 0xF6F8FF,
-    shininess: 45.0,
-    waveHeight: 16.0,
-    waveSpeed: 1.10
+    color:           0x22D3EE,
+    color2:          0x7C3AED,
+    backgroundColor: 0x0B1220,
+    size:            1.2,
+    points:          8.0,
+    maxDistance:      22.0,
+    spacing:         18.0
   });
 </script>
 
