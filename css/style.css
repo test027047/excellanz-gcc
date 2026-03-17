@@ -108,7 +108,7 @@ body {
    MINIMAL HEADER
 ============================================= */
 .top-header {
-  background: rgba(11, 18, 32, 0.88);
+  background: rgba(11, 18, 32, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(201, 168, 76, 0.12);
@@ -116,10 +116,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
   gap: 20px;
+  /* Hidden above viewport on load */
+  transform: translateY(-110%);
+  transition: transform 0.4s cubic-bezier(0.23,1,0.32,1),
+              box-shadow 0.3s ease;
+}
+
+/* Slides down when user has scrolled past the hero header area */
+.top-header.header-scrolled {
+  transform: translateY(0);
+  box-shadow: 0 4px 30px rgba(11, 18, 32, 0.45);
 }
 
 .header-logo img {
@@ -195,7 +207,7 @@ body {
    HERO SECTION — 3D MOTION BANNER
 ============================================= */
 .hero {
-  min-height: calc(100vh - 115px);
+  min-height: calc(100vh - 42px);
   position: relative;
   display: flex;
   align-items: center;
@@ -203,6 +215,33 @@ body {
   padding: 60px 48px;
   background: #0B1220;
   perspective: 1200px;
+}
+
+/* ---- Hero Logo ---- */
+.hero-logo-wrap {
+  margin-bottom: 28px;
+  animation: heroLogoIn 0.8s cubic-bezier(0.23,1,0.32,1) both;
+}
+
+@keyframes heroLogoIn {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-logo-img {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 28px rgba(201,168,76,0.30))
+    drop-shadow(0 12px 32px rgba(0,0,0,0.50));
+  transition: filter 0.3s ease;
+}
+
+.hero-logo-img:hover {
+  filter:
+    drop-shadow(0 0 40px rgba(201,168,76,0.45))
+    drop-shadow(0 16px 40px rgba(0,0,0,0.60));
 }
 
 /* Particle canvas */
@@ -904,7 +943,6 @@ body {
     grid-template-columns: 1fr;
     max-width: 680px;
   }
-  .hero-right { order: -1; }
   .hero { padding: 40px 28px; }
   .floater { display: none; }
 }
@@ -1099,6 +1137,165 @@ body {
   height: 1px;
   background: linear-gradient(90deg, transparent 5%, rgba(79,70,229,0.16) 50%, transparent 95%);
   margin: 10px 48px;
+}
+
+/* =============================================
+   AFFILIATION CARD MARQUEE
+   Prefix: afl-
+============================================= */
+.afl-section {
+  padding: 20px 0 32px;
+}
+
+.afl-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 22px;
+  padding: 0 48px;
+}
+
+.afl-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.30), transparent);
+  max-width: 220px;
+}
+
+.afl-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(11,18,32,0.45);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.afl-label i { color: var(--gold-light); font-size: 0.68rem; }
+
+/* Marquee wrapper */
+.afl-marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Infinite CSS animation — same direction as university row */
+.afl-marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: exzMarquee 22s linear infinite;
+  padding: 8px 0 14px;
+}
+
+.afl-marquee-track:hover { animation-play-state: paused; }
+
+/* Static 5-card centered grid (no animation) */
+.afl-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 8px 48px 24px;
+}
+
+/* Card */
+.afl-card {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 160px;
+  cursor: default;
+  transition: transform 0.3s ease;
+}
+
+.afl-card:hover { transform: translateY(-4px); }
+
+/* Logo image container */
+.afl-card-logo {
+  width: 160px;
+  height: 120px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(17,24,39,0.09);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  box-shadow:
+    0 4px 20px rgba(11,18,32,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.afl-card:hover .afl-card-logo {
+  border-color: rgba(201,168,76,0.35);
+  box-shadow:
+    0 8px 28px rgba(201,168,76,0.14),
+    0 2px 8px rgba(11,18,32,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.afl-card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Name label */
+.afl-card-name {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: rgba(11,18,32,0.60);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-align: center;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.20);
+  border-radius: 50px;
+  padding: 4px 14px;
+  transition: all 0.25s ease;
+}
+
+.afl-card:hover .afl-card-name {
+  color: rgba(11,18,32,0.85);
+  background: rgba(201,168,76,0.14);
+  border-color: rgba(201,168,76,0.35);
+}
+
+/* Edge fades */
+.afl-fade {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 2;
+}
+.afl-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-light, #F6F8FF) 0%, transparent 100%);
+}
+.afl-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-light, #F6F8FF) 0%, transparent 100%);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .afl-card { width: 130px; }
+  .afl-card-logo { width: 130px; height: 96px; padding: 12px; border-radius: 14px; }
+  .afl-label-row { padding: 0 20px; }
 }
 
 .exz-marquee-item { flex-shrink: 0; }
@@ -3519,7 +3716,7 @@ body {
   background: transparent;
   border: none;
   border-radius: 7px;
-  color: rgba(160,160,184,0.58);
+  color: rgba(11, 18, 32, 0.55);
   font-size: 0.7rem;
   font-weight: 700;
   font-family: 'Inter', sans-serif;
@@ -3532,7 +3729,7 @@ body {
 
 .enq-ctab:hover {
   color: var(--gold);
-  background: rgba(79, 70, 229, 0.08);
+  background: rgba(201, 168, 76, 0.10);
 }
 
 .enq-ctab-active {
@@ -3558,10 +3755,10 @@ body {
   align-items: center;
   gap: 6px;
   padding: 7px 13px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(17, 24, 39, 0.14);
   border-radius: 8px;
-  color: rgba(160,160,184,0.65);
+  color: rgba(11, 18, 32, 0.72);
   font-size: 0.75rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
@@ -3570,17 +3767,17 @@ body {
   white-space: nowrap;
 }
 
-.enq-pill i { font-size: 0.65rem; color: rgba(79, 70, 229, 0.45); }
+.enq-pill i { font-size: 0.65rem; color: rgba(79, 70, 229, 0.65); }
 
 .enq-pill-opt:hover .enq-pill {
-  border-color: rgba(79, 70, 229, 0.28);
-  color: var(--gold);
-  background: rgba(79, 70, 229, 0.06);
+  border-color: rgba(201, 168, 76, 0.50);
+  color: rgba(11, 18, 32, 0.90);
+  background: rgba(201, 168, 76, 0.08);
 }
 
 .enq-pill-opt input[type="radio"]:checked + .enq-pill {
-  background: linear-gradient(135deg, rgba(34,211,238,0.16), rgba(79,70,229,0.14));
-  border-color: rgba(79, 70, 229, 0.45);
+  background: linear-gradient(135deg, rgba(34,211,238,0.14), rgba(79,70,229,0.12));
+  border-color: rgba(79, 70, 229, 0.55);
   color: rgba(79, 70, 229, 0.95);
   box-shadow:
     0 0 0 1px rgba(79, 70, 229, 0.16),

@@ -157,31 +157,43 @@ courseTabs.forEach(tab => {
 });
 
 // =============================================
-// FORM SUBMIT HANDLER
+// HERO FORM — Submit Handler
 // =============================================
-const form = document.getElementById('enquiryForm');
-const submitBtn = document.getElementById('submitBtn');
+(function () {
+  const form      = document.getElementById('enquiryForm');
+  const submitBtn = document.getElementById('hfSubmitBtn');
+  if (!form || !submitBtn) return;
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  // Validate a course was selected
-  const selected = document.querySelector('input[name="course"]:checked');
-  if (!selected) {
-    // Highlight the course section
-    const label = document.querySelector('.form-label');
-    const courseSection = document.querySelectorAll('.form-label')[3];
-    if (courseSection) {
-      courseSection.style.color = '#FF6B6B';
-      setTimeout(() => courseSection.style.color = '', 2000);
+    // Validate a course was selected
+    const selected = form.querySelector('input[name="hf_course"]:checked');
+    if (!selected) {
+      const courseSection = form.querySelector('.hf-field:last-of-type .hf-label');
+      if (courseSection) {
+        courseSection.style.color = '#FC8181';
+        setTimeout(() => courseSection.style.color = '', 2000);
+      }
+      return;
     }
-    return;
-  }
 
-  // Success state
-  submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Thank You! We\'ll Call You Soon';
-  submitBtn.disabled = true;
-});
+    // Loading state
+    const textEl    = submitBtn.querySelector('.hf-submit-text');
+    const loadingEl = submitBtn.querySelector('.hf-submit-loading');
+    if (textEl)    textEl.style.display    = 'none';
+    if (loadingEl) loadingEl.style.display = 'flex';
+    submitBtn.disabled = true;
+
+    // TODO: Replace with your Laravel fetch() call
+    setTimeout(() => {
+      if (textEl)    textEl.style.display    = 'flex';
+      if (loadingEl) loadingEl.style.display = 'none';
+      submitBtn.disabled  = false;
+      submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Thank You! We\'ll Call You Soon';
+    }, 1500);
+  });
+})();
 
 // =============================================
 // SMOOTH SCROLL FOR ANCHOR LINKS
@@ -197,14 +209,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // =============================================
-// HEADER SHADOW ON SCROLL
+// HEADER SHOW/HIDE ON SCROLL
 // =============================================
 const header = document.querySelector('.top-header');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    header.style.boxShadow = '0 4px 30px rgba(11, 18, 32, 0.45)';
+  if (window.scrollY > 80) {
+    header.classList.add('header-scrolled');
   } else {
-    header.style.boxShadow = 'none';
+    header.classList.remove('header-scrolled');
   }
 });
 
@@ -393,48 +405,7 @@ window.addEventListener('scroll', () => {
 
 
 // =============================================
-// ENQUIRY POPUP — Course Tab Switcher
-// =============================================
-(function () {
-  const tabs = document.querySelectorAll('.enq-ctab');
-  if (!tabs.length) return;
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.tab;
-
-      tabs.forEach(t => t.classList.remove('enq-ctab-active'));
-      tab.classList.add('enq-ctab-active');
-
-      document.querySelectorAll('.enq-pills-wrap').forEach(p => {
-        p.classList.add('enq-hidden');
-      });
-
-      const panel = document.getElementById('enq-tab-' + target);
-      if (panel) panel.classList.remove('enq-hidden');
-    });
-  });
-
-  // Sync pill radio to hidden input for validation
-  document.querySelectorAll('.enq-pill-opt input[type="radio"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-      const hidden = document.getElementById('enqCourseVal');
-      if (hidden) hidden.value = radio.value;
-
-      const display = document.getElementById('enqCourseDisplay');
-      if (display) display.value = radio.value;
-
-      // Clear course error
-      const field = document.getElementById('enqCourseVal')
-        ?.closest('.enq-field');
-      if (field) field.classList.remove('enq-has-error');
-    });
-  });
-})();
-
-
-// =============================================
-// ENQUIRY POPUP — Open / Close
+// ENQUIRY POPUP — Unified Controller
 // =============================================
 (function () {
   const overlay      = document.getElementById('enqOverlay');
@@ -444,31 +415,55 @@ window.addEventListener('scroll', () => {
   const successBox   = document.getElementById('enqSuccess');
   const successClose = document.getElementById('enqSuccessClose');
 
+  // Dynamic labels
+  const modalTitle   = document.getElementById('enqModalTitle');
+  const modalDesc    = document.getElementById('enqModalDesc');
+  const formTitle    = document.getElementById('enqFormTitle');
+  const formSub      = document.getElementById('enqFormSub');
+  const submitLabel  = document.getElementById('enqSubmitLabel');
+
   if (!overlay) return;
 
-  // Course name → tab + pill auto-select
+  // Course name → tab key mapping
   const courseTabMap = {
-    'Master of'    : 'pg',
-    'Bachelor of'  : 'ug',
-    '10th'         : 'secondary',
-    '12th'         : 'secondary',
-    'BPP'          : 'secondary',
-    'Doctor'       : 'doctorate',
+    'Master of'   : 'pg',
+    'Bachelor of' : 'ug',
+    '10th'        : 'secondary',
+    '12th'        : 'secondary',
+    'BPP'         : 'secondary',
+    'Doctor'      : 'doctorate',
   };
 
-  function openModal(courseName) {
+  // ---- Open ----
+  function openModal(courseName, mode) {
+    mode = mode || 'enquire';
     form.style.display       = 'flex';
     successBox.style.display = 'none';
     clearErrors();
 
+    // Update modal copy based on mode
+    if (mode === 'brochure') {
+      if (modalTitle) modalTitle.innerHTML = 'Download Your<br/><span>Free Brochure</span>';
+      if (modalDesc)  modalDesc.textContent = 'Enter your details and we\'ll send the brochure straight to you.';
+      if (formTitle)  formTitle.textContent = 'Download Brochure';
+      if (formSub)    formSub.textContent   = 'Fill in your details to receive the brochure';
+      if (submitLabel) submitLabel.textContent = ' Download the Brochure';
+    } else {
+      if (modalTitle) modalTitle.innerHTML = 'Start Your<br/><span>Journey Today</span>';
+      if (modalDesc)  modalDesc.textContent = 'Our academic counsellor will reach out within 24 hours \u2014 completely free.';
+      if (formTitle)  formTitle.textContent = 'Enquire Now';
+      if (formSub)    formSub.textContent   = 'We\'ll get back to you within 24 hours';
+      if (submitLabel) submitLabel.textContent = 'Submit Enquiry';
+    }
+
+    // Pre-select course if provided
     if (courseName) {
-      // Find matching tab
       let tabKey = 'pg';
       for (const [key, tab] of Object.entries(courseTabMap)) {
         if (courseName.startsWith(key)) { tabKey = tab; break; }
       }
 
-      // Activate tab
+      // Activate correct tab
       document.querySelectorAll('.enq-ctab').forEach(t =>
         t.classList.remove('enq-ctab-active'));
       const activeTab = document.querySelector(`.enq-ctab[data-tab="${tabKey}"]`);
@@ -480,15 +475,11 @@ window.addEventListener('scroll', () => {
       if (panel) panel.classList.remove('enq-hidden');
 
       // Select matching radio
-      const radios = document.querySelectorAll('.enq-pill-opt input[type="radio"]');
-      radios.forEach(r => {
+      document.querySelectorAll('.enq-pill-opt input[type="radio"]').forEach(r => {
         if (r.value.includes(courseName) || courseName.includes(r.value.split('(')[0].trim())) {
           r.checked = true;
           const hidden = document.getElementById('enqCourseVal');
           if (hidden) hidden.value = r.value;
-
-          const display = document.getElementById('enqCourseDisplay');
-          if (display) display.value = r.value;
         }
       });
     }
@@ -497,28 +488,67 @@ window.addEventListener('scroll', () => {
     document.body.style.overflow = 'hidden';
   }
 
+  // ---- Close ----
   function closeModal() {
     overlay.classList.remove('enq-open');
     document.body.style.overflow = '';
   }
 
-  // Open on any Enquire Now button
+  // ---- Course tab switcher inside modal ----
+  document.querySelectorAll('.enq-ctab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.enq-ctab').forEach(t => t.classList.remove('enq-ctab-active'));
+      tab.classList.add('enq-ctab-active');
+      document.querySelectorAll('.enq-pills-wrap').forEach(p => p.classList.add('enq-hidden'));
+      const panel = document.getElementById('enq-tab-' + target);
+      if (panel) panel.classList.remove('enq-hidden');
+    });
+  });
+
+  // Sync pill radio → hidden input
+  document.querySelectorAll('.enq-pill-opt input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const hidden = document.getElementById('enqCourseVal');
+      if (hidden) hidden.value = radio.value;
+      const field = document.getElementById('enqCourseVal')?.closest('.enq-field');
+      if (field) field.classList.remove('enq-has-error');
+    });
+  });
+
+  // ---- Triggers ----
+
+  // 1. "Enquire Now" on course cards → pass course name, enquire mode
   document.addEventListener('click', e => {
     const btn = e.target.closest('.crs-btn-enquire');
     if (!btn) return;
     e.preventDefault();
     const card = btn.closest('.crs-card');
     const name = card?.querySelector('.crs-course-name')?.textContent.trim();
-    openModal(name || null);
+    openModal(name || null, 'enquire');
   });
 
+  // 2. "Download Brochure" hero button → brochure mode
+  document.getElementById('btnDownloadBrochure')?.addEventListener('click', () => {
+    openModal(null, 'brochure');
+  });
+
+  // 3. "Apply Now" in admission section banner → enquire mode
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.adm-banner-actions .hf-submit');
+    if (!btn) return;
+    e.preventDefault();
+    openModal(null, 'enquire');
+  });
+
+  // Close events
   closeBtn?.addEventListener('click', closeModal);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   successClose?.addEventListener('click', closeModal);
 
   // ---- Validation helpers ----
-  function validateField(el, errId, rule) {
+  function validateField(el, rule) {
     const field = el?.closest('.enq-field');
     if (!field) return true;
     if (!rule(el.value.trim())) {
@@ -535,36 +565,29 @@ window.addEventListener('scroll', () => {
   }
 
   // Live validation
-  ['enqFirstName','enqLastName'].forEach(id => {
-    document.getElementById(id)?.addEventListener('input', function () {
-      validateField(this, id + 'Err', v => v.length >= 2);
-    });
+  document.getElementById('enqFullName')?.addEventListener('input', function () {
+    validateField(this, v => v.length >= 2);
   });
-
   document.getElementById('enqEmail')?.addEventListener('input', function () {
-    validateField(this, 'enqEmailErr', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    validateField(this, v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
   });
-
   document.getElementById('enqPhone')?.addEventListener('input', function () {
-    validateField(this, 'enqPhoneErr', v => /^[\d\s\+\-\(\)]{6,15}$/.test(v));
+    validateField(this, v => /^[\d\s\+\-\(\)]{6,15}$/.test(v));
   });
 
-  // Submit
+  // ---- Single Submit Handler ----
   form?.addEventListener('submit', e => {
     e.preventDefault();
 
-    const courseVal = document.getElementById('enqCourseVal')?.value;
+    const courseVal   = document.getElementById('enqCourseVal')?.value;
     const courseField = document.getElementById('enqCourseVal')?.closest('.enq-field');
 
     const valid = [
-      validateField(document.getElementById('enqFirstName'), 'enqFirstNameErr', v => v.length >= 2),
-      validateField(document.getElementById('enqLastName'),  'enqLastNameErr',  v => v.length >= 2),
-      validateField(document.getElementById('enqEmail'),     'enqEmailErr',     v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)),
-      validateField(document.getElementById('enqPhone'),     'enqPhoneErr',     v => /^[\d\s\+\-\(\)]{6,15}$/.test(v)),
-      validateField(document.getElementById('enqCountry'),   'enqCountryErr',   v => v !== ''),
+      validateField(document.getElementById('enqFullName'), v => v.length >= 2),
+      validateField(document.getElementById('enqEmail'),    v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)),
+      validateField(document.getElementById('enqPhone'),    v => /^[\d\s\+\-\(\)]{6,15}$/.test(v)),
     ].every(Boolean);
 
-    // Validate course pill
     if (!courseVal) {
       courseField?.classList.add('enq-has-error');
       return;
@@ -579,7 +602,7 @@ window.addEventListener('scroll', () => {
     loadingEl.style.display = 'flex';
     submitBtn.disabled      = true;
 
-    // Replace with your Laravel fetch() call
+    // TODO: Replace with your Laravel fetch() call
     setTimeout(() => {
       textEl.style.display    = 'flex';
       loadingEl.style.display = 'none';

@@ -20,7 +20,7 @@
   </div>
 
 <!-- MINIMAL HEADER -->
-<header class="top-header">
+<header class="top-header" id="topHeader">
   <a href="/" class="header-logo">
     <img src="images/logonew.png" alt="Excellanz Education" />
   </a>
@@ -68,6 +68,13 @@
       <!-- LEFT CONTENT -->
       <div class="hero-left">
 
+        <!-- Hero Logo -->
+        <div class="hero-logo-wrap">
+          <a href="/">
+            <img src="images/logonew.png" alt="Excellanz Education" class="hero-logo-img" />
+          </a>
+        </div>
+
         <h1 class="hero-title">
           Elevate Your Career with<br/>
           <span class="gold-text shimmer-text">World-Class Online</span><br/>
@@ -94,18 +101,9 @@
         </div>
 
         <div class="hero-ctas">
-          <a href="#enquire" class="btn-primary-hero">
+          <button type="button" class="btn-primary-hero" id="btnDownloadBrochure">
             <i class="fas fa-rocket"></i> Download Brochure
-          </a>
-        </div>
-
-        <div class="accreditation-row">
-          <span class="accred-label">Recognised by</span>
-          <span class="accred-badge"><i class="fas fa-award"></i> UGC</span>
-          <span class="accred-badge"><i class="fas fa-certificate"></i> NAAC A+</span>
-          <span class="accred-badge"><i class="fas fa-globe"></i> WES</span>
-          <span class="accred-badge"><i class="fas fa-shield-alt"></i> AICTE</span>
-          <span class="accred-badge"><i class="fas fa-star"></i> NIRF</span>
+          </button>
         </div>
 
       </div>
@@ -553,74 +551,21 @@
   <!-- Divider line -->
   <div class="exz-marquee-sep"></div>
 
-  <!-- Marquee Row 2 — Accreditations (reverse direction) -->
-  <div class="exz-marquee-wrapper">
-    <div class="exz-marquee-track exz-marquee-reverse" id="exzMarquee2">
-
-      <div class="exz-marquee-item">
-        <div class="exz-accred-logo">
-          <i class="fas fa-globe-americas"></i>
-          <div>
-            <strong>WES</strong>
-            <small>World Education Services — US & Canada</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="exz-marquee-item">
-        <div class="exz-accred-logo">
-          <i class="fas fa-award"></i>
-          <div>
-            <strong>UGC Entitled</strong>
-            <small>University Grants Commission</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="exz-marquee-item">
-        <div class="exz-accred-logo">
-          <i class="fas fa-certificate"></i>
-          <div>
-            <strong>NAAC Accredited</strong>
-            <small>National Assessment & Accreditation</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="exz-marquee-item">
-        <div class="exz-accred-logo">
-          <i class="fas fa-globe-europe"></i>
-          <div>
-            <strong>UK NARIC / ENIC</strong>
-            <small>UK Degree Recognition</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="exz-marquee-item">
-        <div class="exz-accred-logo">
-          <i class="fas fa-shield-alt"></i>
-          <div>
-            <strong>AICTE Approved</strong>
-            <small>All India Council for Technical Education</small>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="exz-marquee-item">
-        <div class="exz-accred-logo">
-          <i class="fas fa-flag"></i>
-          <div>
-            <strong>AIU Member</strong>
-            <small>Association of Indian Universities</small>
-          </div>
-        </div>
-      </div>
-
+  <!-- Affiliations / Accreditations — Static Grid -->
+  <div class="afl-section">
+    <div class="afl-label-row">
+      <span class="afl-divider"></span>
+      <p class="afl-label"><i class="fas fa-certificate"></i> Accreditations &amp; Recognitions</p>
+      <span class="afl-divider"></span>
     </div>
-    <div class="exz-marquee-fade exz-fade-left"></div>
-    <div class="exz-marquee-fade exz-fade-right"></div>
+
+    <div class="afl-grid">
+      <div class="afl-card"><div class="afl-card-logo"><img src="images/affiliation/1.jpg" alt="NAAC A+" loading="lazy"/></div><p class="afl-card-name">NAAC A+</p></div>
+      <div class="afl-card"><div class="afl-card-logo"><img src="images/affiliation/2.jpg" alt="UGC" loading="lazy"/></div><p class="afl-card-name">UGC</p></div>
+      <div class="afl-card"><div class="afl-card-logo"><img src="images/affiliation/3.jpg" alt="AICTE" loading="lazy"/></div><p class="afl-card-name">AICTE</p></div>
+      <div class="afl-card"><div class="afl-card-logo"><img src="images/affiliation/4.jpg" alt="WES" loading="lazy"/></div><p class="afl-card-name">WES</p></div>
+      <div class="afl-card"><div class="afl-card-logo"><img src="images/affiliation/5.jpg" alt="UK ENIC" loading="lazy"/></div><p class="afl-card-name">UK ENIC</p></div>
+    </div>
   </div>
 
 </section>
@@ -1504,10 +1449,10 @@
       <div class="enq-brand-icon">
         <i class="fas fa-graduation-cap"></i>
       </div>
-      <h3 class="enq-brand-title">
+      <h3 class="enq-brand-title" id="enqModalTitle">
         Start Your<br/><span>Journey Today</span>
       </h3>
-      <p class="enq-brand-desc">
+      <p class="enq-brand-desc" id="enqModalDesc">
         Our academic counsellor will reach out within 24 hours — completely free.
       </p>
       <div class="enq-feats">
@@ -1523,43 +1468,21 @@
     <div class="enq-right">
 
       <div class="enq-form-head">
-        <h4 class="enq-form-title">Enquire Now</h4>
-        <p class="enq-form-sub">We'll get back to you within 24 hours</p>
+        <h4 class="enq-form-title" id="enqFormTitle">Enquire Now</h4>
+        <p class="enq-form-sub" id="enqFormSub">We'll get back to you within 24 hours</p>
       </div>
 
       <form class="enq-form" id="enqForm" novalidate>
 
-        <!-- Name Row -->
-        <div class="enq-row">
-          <div class="enq-field">
-            <label class="enq-label">First Name <span class="enq-req">*</span></label>
-            <div class="enq-wrap">
-              <i class="fas fa-user enq-ico"></i>
-              <input type="text" class="enq-input" id="enqFirstName"
-                placeholder="John" required />
-            </div>
-            <span class="enq-err" id="enqFirstNameErr">Enter your first name</span>
-          </div>
-          <div class="enq-field">
-            <label class="enq-label">Last Name <span class="enq-req">*</span></label>
-            <div class="enq-wrap">
-              <i class="fas fa-user enq-ico"></i>
-              <input type="text" class="enq-input" id="enqLastName"
-                placeholder="Doe" required />
-            </div>
-            <span class="enq-err" id="enqLastNameErr">Enter your last name</span>
-          </div>
-        </div>
-
-        <!-- Email -->
+        <!-- Full Name -->
         <div class="enq-field">
-          <label class="enq-label">Email Address <span class="enq-req">*</span></label>
+          <label class="enq-label">Full Name <span class="enq-req">*</span></label>
           <div class="enq-wrap">
-            <i class="fas fa-envelope enq-ico"></i>
-            <input type="email" class="enq-input" id="enqEmail"
-              placeholder="john@example.com" required />
+            <i class="fas fa-user enq-ico"></i>
+            <input type="text" class="enq-input" id="enqFullName"
+              placeholder="Enter your full name" required />
           </div>
-          <span class="enq-err" id="enqEmailErr">Enter a valid email</span>
+          <span class="enq-err" id="enqFullNameErr">Enter your full name</span>
         </div>
 
         <!-- Phone -->
@@ -1583,15 +1506,27 @@
             <div class="enq-wrap enq-phone-input">
               <i class="fas fa-phone enq-ico"></i>
               <input type="tel" class="enq-input" id="enqPhone"
-                placeholder="Mobile number" required />
+                placeholder="Mobile number"
+                pattern="[0-9]{6,15}" maxlength="15" required />
             </div>
           </div>
           <span class="enq-err" id="enqPhoneErr">Enter a valid phone number</span>
         </div>
 
+        <!-- Email -->
+        <div class="enq-field">
+          <label class="enq-label">Email Address <span class="enq-req">*</span></label>
+          <div class="enq-wrap">
+            <i class="fas fa-envelope enq-ico"></i>
+            <input type="email" class="enq-input" id="enqEmail"
+              placeholder="you@example.com" required />
+          </div>
+          <span class="enq-err" id="enqEmailErr">Enter a valid email</span>
+        </div>
+
         <!-- Course — Pill Selector -->
         <div class="enq-field">
-          <label class="enq-label">Interested Program <span class="enq-req">*</span></label>
+          <label class="enq-label">Select Program <span class="enq-req">*</span></label>
 
           <div class="enq-course-tabs">
             <button type="button" class="enq-ctab enq-ctab-active" data-tab="pg">
@@ -1611,13 +1546,6 @@
           <!-- Hidden input to store selected value -->
           <input type="hidden" id="enqCourseVal" name="course" />
           <span class="enq-err" id="enqCourseErr">Please select a program</span>
-
-          <!-- Visible selected program (read-only) -->
-          <div class="enq-course-display">
-            <i class="fas fa-graduation-cap"></i>
-            <input type="text" id="enqCourseDisplay" class="enq-course-display-input"
-              value="" placeholder="Selected program will appear here" readonly />
-          </div>
 
           <!-- PG -->
           <div class="enq-pills-wrap" id="enq-tab-pg">
@@ -1703,16 +1631,12 @@
         <!-- Submit -->
         <button type="submit" class="enq-submit" id="enqSubmit">
           <span class="enq-submit-text">
-            <i class="fas fa-paper-plane"></i> Submit Enquiry
+            <i class="fas fa-paper-plane"></i> <span id="enqSubmitLabel">Submit Enquiry</span>
           </span>
           <span class="enq-submit-loading" style="display:none;">
             <i class="fas fa-spinner fa-spin"></i> Sending...
           </span>
         </button>
-
-        <p class="enq-privacy">
-          <i class="fas fa-lock"></i> Your information is safe and never shared
-        </p>
 
       </form>
 
@@ -2416,23 +2340,26 @@
     showDots:        false
   });
 
-  VANTA.GLOBE({
-    el: "#heroSection",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200,
-    minWidth: 200,
-    scale: 1.0,
-    scaleMobile: 1.0,
-    color:           0x22D3EE,
-    color2:          0x7C3AED,
-    backgroundColor: 0x0B1220,
-    size:            1.2,
-    points:          8.0,
-    maxDistance:      22.0,
-    spacing:         18.0
-  });
+  // Only show the 3D globe on desktop — too distracting on mobile
+  if (window.innerWidth > 1080) {
+    VANTA.GLOBE({
+      el: "#heroSection",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200,
+      minWidth: 200,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color:           0x22D3EE,
+      color2:          0x7C3AED,
+      backgroundColor: 0x0B1220,
+      size:            1.2,
+      points:          8.0,
+      maxDistance:      22.0,
+      spacing:         18.0
+    });
+  }
 </script>
 
 
