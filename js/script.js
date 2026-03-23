@@ -808,22 +808,29 @@ window.addEventListener('scroll', () => {
 
   // ---- Lighting ----
   // Ambient
-  scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+  scene.add(new THREE.AmbientLight(0xfff8e7, 0.5));
 
-  // Main key light (accent)
-  const keyLight = new THREE.DirectionalLight(0x22D3EE, 2.3);
+  // Main key light — warm gold
+  const keyLight = new THREE.DirectionalLight(0xFFCC44, 3.5);
   keyLight.position.set(3, 4, 5);
   scene.add(keyLight);
 
-  // Fill light — accent
-  const fillLight = new THREE.PointLight(0x4F46E5, 1.6, 20);
+  // Fill light — gold/amber
+  const fillLight = new THREE.PointLight(0xFFAA22, 2.2, 20);
   fillLight.position.set(-4, 2, 3);
   scene.add(fillLight);
 
-  // Rim light — cool blue rim for depth
-  const rimLight = new THREE.DirectionalLight(0x4488ff, 0.4);
+  // Rim light — warm gold rim for depth
+  const rimLight = new THREE.DirectionalLight(0xFFDD88, 0.8);
   rimLight.position.set(-3, -2, -3);
   scene.add(rimLight);
+
+  // Sweeping gold SpotLight — always passes through the logo
+  const sweepLight = new THREE.SpotLight(0xFFD700, 6.0, 18, Math.PI / 6, 0.5, 1.5);
+  sweepLight.position.set(-8, 2, 4);
+  sweepLight.target.position.set(0, 0, 0);
+  scene.add(sweepLight);
+  scene.add(sweepLight.target);
 
   // ---- Background particles ----
   const PTCOUNT = 200;
@@ -836,10 +843,10 @@ window.addEventListener('scroll', () => {
   const ptGeo = new THREE.BufferGeometry();
   ptGeo.setAttribute('position', new THREE.BufferAttribute(ptPositions, 3));
   const ptMat = new THREE.PointsMaterial({
-    color: 0x4F46E5,
-    size: 0.03,
+    color: 0xFFCC44,
+    size: 0.035,
     transparent: true,
-    opacity: 0.4,
+    opacity: 0.5,
     blending: THREE.AdditiveBlending,
     depthWrite: false,
   });
@@ -895,13 +902,13 @@ window.addEventListener('scroll', () => {
         map:              mapTexture,
         transparent:      true,
         alphaTest:        0.12,
-        metalness:        0.92,
-        roughness:        0.18,
+        metalness:        0.95,
+        roughness:        0.12,
         clearcoat:        1.0,
-        clearcoatRoughness: 0.10,
-        envMapIntensity:  2.0,
-        emissive:         new THREE.Color(0x22D3EE),
-        emissiveIntensity: 0.34,
+        clearcoatRoughness: 0.08,
+        envMapIntensity:  2.5,
+        emissive:         new THREE.Color(0xFFAA22),
+        emissiveIntensity: 0.55,
         side:             THREE.DoubleSide,
       });
 
@@ -925,9 +932,9 @@ window.addEventListener('scroll', () => {
       const glowTex = makeGlowTexture();
       const spriteMat = new THREE.SpriteMaterial({
         map: glowTex,
-        color: 0x4F46E5,
+        color: 0xFFAA22,
         transparent: true,
-        opacity: 0.26,
+        opacity: 0.38,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
       });
@@ -955,9 +962,9 @@ window.addEventListener('scroll', () => {
     c.width   = c.height = 256;
     const ctx = c.getContext('2d');
     const g   = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
-    g.addColorStop(0,   'rgba(34,211,238,1)');
-    g.addColorStop(0.4, 'rgba(79,70,229,0.35)');
-    g.addColorStop(1,   'rgba(79,70,229,0)');
+    g.addColorStop(0,   'rgba(255,220,80,1)');
+    g.addColorStop(0.4, 'rgba(255,160,30,0.45)');
+    g.addColorStop(1,   'rgba(255,140,20,0)');
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, 256, 256);
     return new THREE.CanvasTexture(c);
@@ -1017,8 +1024,9 @@ window.addEventListener('scroll', () => {
 
     // Boost glow
     if (glowSpriteMat) {
-      glowSpriteMat.opacity = 0.5;
-      fillLight.intensity   = 4;
+      glowSpriteMat.opacity = 0.75;
+      fillLight.intensity   = 5;
+      sweepLight.intensity  = 12;
     }
   }
 
@@ -1074,6 +1082,16 @@ window.addEventListener('scroll', () => {
     logo.position.y  = floatY;
     logo.position.x  = floatX;
 
+    // Always animate sweep light — continuously sweeps through the logo (left to right)
+    const sweepCycle = (frame * 0.022) % (Math.PI * 2);
+    sweepLight.position.x = Math.sin(sweepCycle) * 9;
+    sweepLight.position.y = 1.5;
+    sweepLight.position.z = 5;
+    // Intensity pulses brighter as it crosses centre
+    const sweepT = Math.abs(Math.sin(sweepCycle));
+    sweepLight.intensity = 4 + sweepT * 8;
+    sweepLight.color.setHSL(0.11 + sweepT * 0.03, 1.0, 0.65);
+
     // Glow pulse
     if (glowSprite && !isSpinning) {
       const pulse = 1 + Math.sin(frame * 0.03) * 0.05;
@@ -1082,7 +1100,7 @@ window.addEventListener('scroll', () => {
         glowSprite.scale.y,
         1
       );
-      glowSpriteMat.opacity = 0.14 + Math.sin(frame * 0.025) * 0.05;
+      glowSpriteMat.opacity = 0.22 + Math.sin(frame * 0.025) * 0.08;
     }
 
     // Animate fill light orbit

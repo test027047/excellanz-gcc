@@ -4932,6 +4932,37 @@ body {
   cursor: pointer;
 }
 
+/* Continuous golden light sweep across the logo */
+.fb-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 215, 80, 0.08)  35%,
+    rgba(255, 200, 50, 0.32)  48%,
+    rgba(255, 230, 120, 0.55) 50%,
+    rgba(255, 200, 50, 0.32)  52%,
+    rgba(255, 215, 80, 0.08)  65%,
+    transparent 80%
+  );
+  animation: fbGoldSweep 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+@keyframes fbGoldSweep {
+  0%   { left: -60%; opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { left: 130%; opacity: 0; }
+}
+
 #fbCanvas {
   position: absolute;
   inset: 0;
@@ -4975,7 +5006,7 @@ body {
   align-items: center;
   gap: 10px;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+  font-size: clamp(0.8rem, 1.4vw, 0.5rem);
   font-style: italic;
   color: rgba(255,255,255,0.42);
   white-space: nowrap;
@@ -4991,7 +5022,7 @@ body {
 .fb-ripple {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(34,211,238,0.28), transparent 70%);
+  background: radial-gradient(circle, rgba(255,215,80,0.45), rgba(255,160,20,0.20) 50%, transparent 70%);
   transform: scale(0);
   animation: fbRipple 0.8s ease-out forwards;
   pointer-events: none;
