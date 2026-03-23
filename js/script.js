@@ -785,6 +785,8 @@ window.addEventListener('scroll', () => {
     alpha: true,
     antialias: true,
   });
+  // Ensure the canvas clears to transparent (prevents visible “black box”)
+  renderer.setClearColor(0x000000, 0);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -850,6 +852,36 @@ window.addEventListener('scroll', () => {
     function (texture) {
       texture.colorSpace = THREE.SRGBColorSpace;
 
+      // If the source PNG has a dark/black matte, make near-black pixels transparent.
+      // This removes the visible black square behind the logo.
+      let mapTexture = texture;
+      try {
+        const img = texture.image;
+        if (img && img.width && img.height) {
+          const c = document.createElement('canvas');
+          c.width = img.width;
+          c.height = img.height;
+          const ctx = c.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+          const id = ctx.getImageData(0, 0, c.width, c.height);
+          const d = id.data;
+          for (let i = 0; i < d.length; i += 4) {
+            const r = d[i];
+            const g = d[i + 1];
+            const b = d[i + 2];
+            const a = d[i + 3];
+            // Remove near-black pixels while keeping existing alpha.
+            if (a > 0 && r < 18 && g < 18 && b < 18) d[i + 3] = 0;
+          }
+          ctx.putImageData(id, 0, 0);
+          mapTexture = new THREE.CanvasTexture(c);
+          mapTexture.colorSpace = THREE.SRGBColorSpace;
+        }
+      } catch (e) {
+        // Fallback to original texture if anything goes wrong.
+        mapTexture = texture;
+      }
+
       // Aspect ratio — logo is roughly 3:1
       const aspect  = texture.image.width / texture.image.height;
       // Slightly smaller model for a tighter footer layout
@@ -860,16 +892,16 @@ window.addEventListener('scroll', () => {
       const geo = new THREE.PlaneGeometry(pWidth, pHeight, 20, 20);
       // Physical shading makes the flat logo feel more "3D" via specular highlights
       const mat = new THREE.MeshPhysicalMaterial({
-        map:              texture,
+        map:              mapTexture,
         transparent:      true,
-        alphaTest:        0.05,
+        alphaTest:        0.12,
         metalness:        0.92,
         roughness:        0.18,
         clearcoat:        1.0,
         clearcoatRoughness: 0.10,
         envMapIntensity:  2.0,
         emissive:         new THREE.Color(0x22D3EE),
-        emissiveIntensity: 0.22,
+        emissiveIntensity: 0.34,
         side:             THREE.DoubleSide,
       });
 
@@ -877,11 +909,11 @@ window.addEventListener('scroll', () => {
       scene.add(logo);
 
       // Shadow plane behind logo
-      const shadowGeo = new THREE.PlaneGeometry(pWidth * 1.1, pHeight * 1.1);
+      const shadowGeo = new THREE.PlaneGeometry(pWidth * 1.02, pHeight * 1.02);
       const shadowMat = new THREE.MeshBasicMaterial({
         color: 0x000000,
         transparent: true,
-        opacity: 0.25,
+        opacity: 0.12,
         depthWrite: false,
       });
       const shadowPlane = new THREE.Mesh(shadowGeo, shadowMat);
@@ -895,7 +927,7 @@ window.addEventListener('scroll', () => {
         map: glowTex,
         color: 0x4F46E5,
         transparent: true,
-        opacity: 0.22,
+        opacity: 0.26,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
       });
@@ -1021,7 +1053,7 @@ window.addEventListener('scroll', () => {
 
       // Golden shimmer during spin
       if (glowSpriteMat) {
-        glowSpriteMat.opacity = 0.35 + Math.abs(Math.sin(spinAngle)) * 0.35;
+        glowSpriteMat.opacity = 0.40 + Math.abs(Math.sin(spinAngle)) * 0.40;
       }
       fillLight.intensity = 2.5 + Math.abs(Math.sin(spinAngle)) * 2;
 
