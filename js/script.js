@@ -852,18 +852,24 @@ window.addEventListener('scroll', () => {
 
       // Aspect ratio — logo is roughly 3:1
       const aspect  = texture.image.width / texture.image.height;
-      const pWidth  = 4.5;
+      // Slightly smaller model for a tighter footer layout
+      const pWidth  = 3.7;
       const pHeight = pWidth / aspect;
 
       // Main logo plane
-      const geo = new THREE.PlaneGeometry(pWidth, pHeight, 24, 24);
-      const mat = new THREE.MeshStandardMaterial({
+      const geo = new THREE.PlaneGeometry(pWidth, pHeight, 20, 20);
+      // Physical shading makes the flat logo feel more "3D" via specular highlights
+      const mat = new THREE.MeshPhysicalMaterial({
         map:              texture,
         transparent:      true,
         alphaTest:        0.05,
-        metalness:        0.7,
-        roughness:        0.25,
-        envMapIntensity:  1.2,
+        metalness:        0.92,
+        roughness:        0.18,
+        clearcoat:        1.0,
+        clearcoatRoughness: 0.10,
+        envMapIntensity:  2.0,
+        emissive:         new THREE.Color(0x22D3EE),
+        emissiveIntensity: 0.22,
         side:             THREE.DoubleSide,
       });
 
@@ -875,7 +881,7 @@ window.addEventListener('scroll', () => {
       const shadowMat = new THREE.MeshBasicMaterial({
         color: 0x000000,
         transparent: true,
-        opacity: 0.35,
+        opacity: 0.25,
         depthWrite: false,
       });
       const shadowPlane = new THREE.Mesh(shadowGeo, shadowMat);
@@ -889,12 +895,12 @@ window.addEventListener('scroll', () => {
         map: glowTex,
         color: 0x4F46E5,
         transparent: true,
-        opacity: 0.18,
+        opacity: 0.22,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
       });
       const glow = new THREE.Sprite(spriteMat);
-      glow.scale.set(pWidth * 2.2, pHeight * 2.2, 1);
+      glow.scale.set(pWidth * 2.0, pHeight * 2.0, 1);
       glow.position.z = -0.5;
       scene.add(glow);
       glowSprite = glow;
@@ -1010,12 +1016,12 @@ window.addEventListener('scroll', () => {
 
     if (isSpinning) {
       // Full Y-axis flip spin
-      spinAngle += 0.065;
+      spinAngle += 0.07;
       logo.rotation.y = spinAngle;
 
       // Golden shimmer during spin
       if (glowSpriteMat) {
-        glowSpriteMat.opacity = 0.3 + Math.abs(Math.sin(spinAngle)) * 0.3;
+        glowSpriteMat.opacity = 0.35 + Math.abs(Math.sin(spinAngle)) * 0.35;
       }
       fillLight.intensity = 2.5 + Math.abs(Math.sin(spinAngle)) * 2;
 

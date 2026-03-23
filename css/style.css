@@ -1906,6 +1906,10 @@ body {
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
+  /* Standard property for broader compatibility */
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   opacity: 0;
@@ -4918,10 +4922,10 @@ body {
 
 .fb-banner {
   width: 100%;
-  height: 420px;
+  height: 290px;
   position: relative;
   overflow: hidden;
-  background: #04040B;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 1) 0%, rgba(4, 4, 11, 1) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4947,7 +4951,7 @@ body {
   gap: 7px;
   font-size: 0.7rem;
   font-weight: 600;
-  color: rgba(201,168,76,0.45);
+  color: rgba(34,211,238,0.65);
   letter-spacing: 0.5px;
   z-index: 2;
   animation: fbHintFade 3s ease-in-out infinite alternate;
@@ -4973,21 +4977,21 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: clamp(0.8rem, 1.4vw, 1.05rem);
   font-style: italic;
-  color: rgba(160,160,184,0.4);
+  color: rgba(255,255,255,0.42);
   white-space: nowrap;
   z-index: 2;
   pointer-events: none;
 }
 
 .fb-tag-gold {
-  color: rgba(201,168,76,0.55);
+  color: rgba(34,211,238,0.90);
 }
 
 /* Ripple effect on click */
 .fb-ripple {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(245,208,96,0.25), transparent 70%);
+  background: radial-gradient(circle, rgba(34,211,238,0.28), transparent 70%);
   transform: scale(0);
   animation: fbRipple 0.8s ease-out forwards;
   pointer-events: none;
@@ -4999,8 +5003,8 @@ body {
 }
 
 @media (max-width: 600px) {
-  .fb-banner { height: 300px; }
-  .fb-tagline { font-size: 0.72rem; bottom: 16px; }
+  .fb-banner { height: 220px; }
+  .fb-tagline { font-size: 0.72rem; bottom: 14px; }
 }
 
 
