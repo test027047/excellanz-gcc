@@ -4932,36 +4932,6 @@ body {
   cursor: pointer;
 }
 
-/* Continuous golden light sweep across the logo */
-.fb-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -60%;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255, 215, 80, 0.08)  35%,
-    rgba(255, 200, 50, 0.32)  48%,
-    rgba(255, 230, 120, 0.55) 50%,
-    rgba(255, 200, 50, 0.32)  52%,
-    rgba(255, 215, 80, 0.08)  65%,
-    transparent 80%
-  );
-  animation: fbGoldSweep 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  pointer-events: none;
-  z-index: 1;
-  mix-blend-mode: screen;
-}
-
-@keyframes fbGoldSweep {
-  0%   { left: -60%; opacity: 0; }
-  8%   { opacity: 1; }
-  92%  { opacity: 1; }
-  100% { left: 130%; opacity: 0; }
-}
 
 #fbCanvas {
   position: absolute;

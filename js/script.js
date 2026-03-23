@@ -825,13 +825,6 @@ window.addEventListener('scroll', () => {
   rimLight.position.set(-3, -2, -3);
   scene.add(rimLight);
 
-  // Sweeping gold SpotLight — always passes through the logo
-  const sweepLight = new THREE.SpotLight(0xFFD700, 6.0, 18, Math.PI / 6, 0.5, 1.5);
-  sweepLight.position.set(-8, 2, 4);
-  sweepLight.target.position.set(0, 0, 0);
-  scene.add(sweepLight);
-  scene.add(sweepLight.target);
-
   // ---- Background particles ----
   const PTCOUNT = 200;
   const ptPositions = new Float32Array(PTCOUNT * 3);
@@ -1026,7 +1019,6 @@ window.addEventListener('scroll', () => {
     if (glowSpriteMat) {
       glowSpriteMat.opacity = 0.75;
       fillLight.intensity   = 5;
-      sweepLight.intensity  = 12;
     }
   }
 
@@ -1081,16 +1073,6 @@ window.addEventListener('scroll', () => {
     // Always apply float
     logo.position.y  = floatY;
     logo.position.x  = floatX;
-
-    // Always animate sweep light — continuously sweeps through the logo (left to right)
-    const sweepCycle = (frame * 0.022) % (Math.PI * 2);
-    sweepLight.position.x = Math.sin(sweepCycle) * 9;
-    sweepLight.position.y = 1.5;
-    sweepLight.position.z = 5;
-    // Intensity pulses brighter as it crosses centre
-    const sweepT = Math.abs(Math.sin(sweepCycle));
-    sweepLight.intensity = 4 + sweepT * 8;
-    sweepLight.color.setHSL(0.11 + sweepT * 0.03, 1.0, 0.65);
 
     // Glow pulse
     if (glowSprite && !isSpinning) {
