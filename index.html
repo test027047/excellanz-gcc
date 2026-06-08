@@ -25,11 +25,6 @@
     <img src="images/logonew.png" alt="Excellanz Education" />
   </a>
   <div class="header-right">
-    <a href="https://wa.me/97142737074?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Excellanz%20Education"
-       class="btn-whatsapp" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-      <span>WhatsApp Us</span>
-    </a>
 
     <a href="tel:+971 4 273 7074" class="btn-call-now">
       <i class="fas fa-phone-alt"></i>
@@ -175,133 +170,43 @@
             <!-- Course Selector -->
             <div class="hf-field">
               <label class="hf-label">Select Program <span class="hf-req">*</span></label>
-
-              <!-- Level Tabs -->
-              <div class="hf-course-tabs">
-                <button type="button" class="hf-ctab hf-ctab-active" data-tab="pg">
-                  <i class="fas fa-user-graduate"></i> PG
+              <div class="hf-cd" id="hfCourseDropdown">
+                <button type="button" class="hf-cd-trigger" id="hfCourseTrigger" aria-haspopup="listbox" aria-expanded="false">
+                  <i class="fas fa-graduation-cap hf-cd-icon"></i>
+                  <span class="hf-cd-value" id="hfCourseValue">Choose a program</span>
+                  <i class="fas fa-chevron-down hf-cd-arrow"></i>
                 </button>
-                <button type="button" class="hf-ctab" data-tab="ug">
-                  <i class="fas fa-graduation-cap"></i> UG
-                </button>
-                <button type="button" class="hf-ctab" data-tab="secondary">
-                  <i class="fas fa-school"></i> Secondary
-                </button>
-                <button type="button" class="hf-ctab" data-tab="doctorate">
-                  <i class="fas fa-microscope"></i> PhD
-                </button>
-              </div>
-
-              <!-- PG Options -->
-              <div class="hf-course-options" id="hf-tab-pg">
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="MBA" />
-                  <span class="hf-pill">
-                    <i class="fas fa-briefcase"></i> MBA
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="MCA" />
-                  <span class="hf-pill">
-                    <i class="fas fa-laptop-code"></i> MCA
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="MA" />
-                  <span class="hf-pill">
-                    <i class="fas fa-book-reader"></i> MA
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="M.Com" />
-                  <span class="hf-pill">
-                    <i class="fas fa-coins"></i> M.Com
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="M.Sc" />
-                  <span class="hf-pill">
-                    <i class="fas fa-atom"></i> M.Sc
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="MSW" />
-                  <span class="hf-pill">
-                    <i class="fas fa-hands-helping"></i> MSW
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="MCS" />
-                  <span class="hf-pill">
-                    <i class="fas fa-microchip"></i> MCS
-                  </span>
-                </label>
-              </div>
-
-              <!-- UG Options -->
-              <div class="hf-course-options hf-hidden" id="hf-tab-ug">
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="BBA" />
-                  <span class="hf-pill">
-                    <i class="fas fa-briefcase"></i> BBA
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="BCA" />
-                  <span class="hf-pill">
-                    <i class="fas fa-laptop-code"></i> BCA
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="BA" />
-                  <span class="hf-pill">
-                    <i class="fas fa-palette"></i> BA
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="B.Com" />
-                  <span class="hf-pill">
-                    <i class="fas fa-chart-bar"></i> B.Com
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="B.Sc" />
-                  <span class="hf-pill">
-                    <i class="fas fa-flask"></i> B.Sc
-                  </span>
-                </label>
-              </div>
-
-              <!-- Secondary Options -->
-              <div class="hf-course-options hf-hidden" id="hf-tab-secondary">
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="10th" />
-                  <span class="hf-pill">
-                    <i class="fas fa-book"></i> 10th
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="12th" />
-                  <span class="hf-pill">
-                    <i class="fas fa-book-open"></i> 12th
-                  </span>
-                </label>
-                <label class="hf-course-opt">
-                  <input type="radio" name="hf_course" value="BPP" />
-                  <span class="hf-pill">
-                    <i class="fas fa-road"></i> BPP
-                  </span>
-                </label>
-              </div>
-
-              <!-- Doctorate Options -->
-              <div class="hf-course-options hf-hidden" id="hf-tab-doctorate">
-                <label class="hf-course-opt hf-course-opt-wide">
-                  <input type="radio" name="hf_course" value="PhD" />
-                  <span class="hf-pill">
-                    <i class="fas fa-atom"></i> Doctor of Philosophy (Ph.D)
-                  </span>
-                </label>
+                <div class="hf-cd-panel" id="hfCoursePanel" role="listbox">
+                  <div class="hf-cd-group">
+                    <div class="hf-cd-group-label"><i class="fas fa-user-graduate"></i> Post Graduate (PG)</div>
+                    <div class="hf-cd-opt" data-value="MBA" role="option"><i class="fas fa-briefcase"></i><span>MBA</span><small>Master of Business Administration</small></div>
+                    <div class="hf-cd-opt" data-value="MCA" role="option"><i class="fas fa-laptop-code"></i><span>MCA</span><small>Master of Computer Applications</small></div>
+                    <div class="hf-cd-opt" data-value="MA" role="option"><i class="fas fa-book-reader"></i><span>MA</span><small>Master of Arts</small></div>
+                    <div class="hf-cd-opt" data-value="M.Com" role="option"><i class="fas fa-coins"></i><span>M.Com</span><small>Master of Commerce</small></div>
+                    <div class="hf-cd-opt" data-value="M.Sc" role="option"><i class="fas fa-atom"></i><span>M.Sc</span><small>Master of Science</small></div>
+                    <div class="hf-cd-opt" data-value="MSW" role="option"><i class="fas fa-hands-helping"></i><span>MSW</span><small>Master of Social Work</small></div>
+                    <div class="hf-cd-opt" data-value="MCS" role="option"><i class="fas fa-microchip"></i><span>MCS</span><small>Master of Computer Science</small></div>
+                  </div>
+                  <div class="hf-cd-group">
+                    <div class="hf-cd-group-label"><i class="fas fa-graduation-cap"></i> Under Graduate (UG)</div>
+                    <div class="hf-cd-opt" data-value="BBA" role="option"><i class="fas fa-briefcase"></i><span>BBA</span><small>Bachelor of Business Administration</small></div>
+                    <div class="hf-cd-opt" data-value="BCA" role="option"><i class="fas fa-laptop-code"></i><span>BCA</span><small>Bachelor of Computer Applications</small></div>
+                    <div class="hf-cd-opt" data-value="BA" role="option"><i class="fas fa-palette"></i><span>BA</span><small>Bachelor of Arts</small></div>
+                    <div class="hf-cd-opt" data-value="B.Com" role="option"><i class="fas fa-chart-bar"></i><span>B.Com</span><small>Bachelor of Commerce</small></div>
+                    <div class="hf-cd-opt" data-value="B.Sc" role="option"><i class="fas fa-flask"></i><span>B.Sc</span><small>Bachelor of Science</small></div>
+                  </div>
+                  <div class="hf-cd-group">
+                    <div class="hf-cd-group-label"><i class="fas fa-school"></i> Secondary</div>
+                    <div class="hf-cd-opt" data-value="10th" role="option"><i class="fas fa-book"></i><span>10th</span><small>Secondary Education</small></div>
+                    <div class="hf-cd-opt" data-value="12th" role="option"><i class="fas fa-book-open"></i><span>12th</span><small>Higher Secondary Education</small></div>
+                    <div class="hf-cd-opt" data-value="BPP" role="option"><i class="fas fa-road"></i><span>BPP</span><small>Bachelor's Preparatory Programme</small></div>
+                  </div>
+                  <div class="hf-cd-group">
+                    <div class="hf-cd-group-label"><i class="fas fa-microscope"></i> Doctorate</div>
+                    <div class="hf-cd-opt" data-value="PhD" role="option"><i class="fas fa-atom"></i><span>Ph.D</span><small>Doctor of Philosophy</small></div>
+                  </div>
+                </div>
+                <input type="hidden" name="hf_course" id="hfCourseInput" />
               </div>
             </div>
 

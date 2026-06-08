@@ -168,15 +168,17 @@ courseTabs.forEach(tab => {
     e.preventDefault();
 
     // Validate a course was selected
-    const selected = form.querySelector('input[name="hf_course"]:checked');
-    if (!selected) {
-      const courseSection = form.querySelector('.hf-field:last-of-type .hf-label');
-      if (courseSection) {
-        courseSection.style.color = '#FC8181';
-        setTimeout(() => courseSection.style.color = '', 2000);
+    const courseInput = form.querySelector('input[name="hf_course"]');
+    if (!courseInput || !courseInput.value) {
+      const trigger = document.getElementById('hfCourseTrigger');
+      if (trigger) {
+        trigger.style.borderColor = '#FC8181';
+        trigger.style.boxShadow   = '0 0 0 3px rgba(252,129,129,0.15)';
+        setTimeout(() => { trigger.style.borderColor = ''; trigger.style.boxShadow = ''; }, 2000);
       }
       return;
     }
+    const selected = { value: courseInput.value };
 
     // Loading state
     const textEl    = submitBtn.querySelector('.hf-submit-text');
@@ -374,34 +376,6 @@ window.addEventListener('scroll', () => {
 })();
 
 
-// =============================================
-// HERO FORM — Course Tab Switcher
-// =============================================
-(function () {
-  const tabs = document.querySelectorAll('.hf-ctab');
-  if (!tabs.length) return;
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.tab;
-
-      tabs.forEach(t => t.classList.remove('hf-ctab-active'));
-      tab.classList.add('hf-ctab-active');
-
-      document.querySelectorAll('.hf-course-options').forEach(panel => {
-        panel.classList.add('hf-hidden');
-      });
-
-      const target_panel = document.getElementById('hf-tab-' + target);
-      if (target_panel) {
-        target_panel.classList.remove('hf-hidden');
-        // Deselect any previous radio in hidden panels
-        target_panel.querySelectorAll('input[type="radio"]')
-          .forEach(r => r.checked = false);
-      }
-    });
-  });
-})();
 
 
 // =============================================
@@ -1163,6 +1137,78 @@ window.addEventListener('scroll', () => {
   cards.forEach(card => cardObs.observe(card));
 
 })();
+
+
+// =============================================
+// HERO FORM — Custom Course Dropdown
+// =============================================
+(function () {
+  const wrap    = document.getElementById('hfCourseDropdown');
+  const trigger = document.getElementById('hfCourseTrigger');
+  const panel   = document.getElementById('hfCoursePanel');
+  const valueEl = document.getElementById('hfCourseValue');
+  const input   = document.getElementById('hfCourseInput');
+  if (!wrap || !trigger || !panel) return;
+
+  // Move panel to <body> so backdrop-filter / overflow:hidden ancestors can't clip it
+  document.body.appendChild(panel);
+
+  let isOpen = false;
+
+  function positionPanel() {
+    const rect = trigger.getBoundingClientRect();
+    panel.style.top   = rect.bottom + 'px';
+    panel.style.left  = rect.left + 'px';
+    panel.style.width = rect.width + 'px';
+  }
+
+  function open() {
+    positionPanel();
+    isOpen = true;
+    panel.classList.add('open');
+    trigger.setAttribute('aria-expanded', 'true');
+    trigger.classList.add('hf-cd-trigger-open');
+  }
+
+  function close() {
+    isOpen = false;
+    panel.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.classList.remove('hf-cd-trigger-open');
+  }
+
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isOpen ? close() : open();
+  });
+
+  window.addEventListener('scroll', () => { if (isOpen) positionPanel(); }, true);
+  window.addEventListener('resize', () => { if (isOpen) positionPanel(); });
+
+  panel.querySelectorAll('.hf-cd-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const val   = opt.dataset.value;
+      const label = opt.querySelector('span').textContent.trim();
+
+      panel.querySelectorAll('.hf-cd-opt').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+
+      valueEl.textContent = label;
+      valueEl.classList.add('chosen');
+      input.value = val;
+
+      close();
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (isOpen && !trigger.contains(e.target) && !panel.contains(e.target)) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+}());
 
 
 
