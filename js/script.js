@@ -38,7 +38,7 @@
       vy: (Math.random() - 0.5) * 0.4,
       r: Math.random() * 2 + 1,
       alpha: Math.random() * 0.5 + 0.2,
-      color: Math.random() > 0.5 ? '34,211,238' : '79,70,229',
+      color: Math.random() > 0.5 ? '212,175,55' : '201,150,40',
     });
   }
 
@@ -91,7 +91,7 @@
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(79,70,229,${lineAlpha})`;
+          ctx.strokeStyle = `rgba(212,175,55,${lineAlpha})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
