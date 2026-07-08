@@ -26,13 +26,8 @@
     <!-- Background photo (graduation/education theme), light-washed to stay on-theme -->
     <div class="hero-bg-image"></div>
 
-    <!-- Layered BG -->
-    <div class="hero-bg-decor">
-      <div class="hero-bg-orb hero-orb-1"></div>
-      <div class="hero-bg-orb hero-orb-2"></div>
-      <div class="hero-bg-orb hero-orb-3"></div>
-      <div class="hero-bg-grid"></div>
-    </div>
+    <!-- Layered BG (kept as an empty hook — grid/swoosh/sparkles now come from bg_banner.jpeg) -->
+    <div class="hero-bg-decor"></div>
 
     <div class="hero-inner">
 
@@ -45,6 +40,8 @@
             <img src="images/logonew.png" alt="Excellanz Education" class="hero-logo-img" />
           </a>
         </div>
+
+     
 
         <h1 class="hero-title">
           Elevate Your Career with<br/>
@@ -1554,25 +1551,6 @@
     </h2>
   </div>
 
-  <!-- Stats Strip -->
-  <div class="tst-stats-strip">
-    <div class="tst-stat">
-      <strong>4.9★</strong><span>Overall Rating</span>
-    </div>
-    <div class="tst-strip-sep"></div>
-    <div class="tst-stat">
-      <strong>50K+</strong><span>Happy Students</span>
-    </div>
-    <div class="tst-strip-sep"></div>
-    <div class="tst-stat">
-      <strong>15+</strong><span>Countries</span>
-    </div>
-    <div class="tst-strip-sep"></div>
-    <div class="tst-stat">
-      <strong>98%</strong><span>Satisfaction</span>
-    </div>
-  </div>
-
   <!-- Spotlight Stage -->
   <div class="tst-stage">
 
@@ -1583,10 +1561,8 @@
         <!-- Slide 0 -->
         <div class="tst-slide tst-active" data-index="0">
           <div class="tst-slide-media">
-            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
             <button type="button" class="tst-video-thumb"
-              data-video-src="videos/testimonials/arjun-ramesh.mp4"
-              data-video-poster="images/test.png"
+              data-youtube-id="flQN6Lo6cMg"
               data-video-name="Arjun Ramesh"
               aria-label="Play video testimonial from Arjun Ramesh">
               <img src="images/test.png" alt="Arjun Ramesh" />
@@ -1623,10 +1599,8 @@
         <!-- Slide 1 -->
         <div class="tst-slide" data-index="1">
           <div class="tst-slide-media">
-            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
             <button type="button" class="tst-video-thumb"
-              data-video-src="videos/testimonials/priya-menon.mp4"
-              data-video-poster="images/test.png"
+              data-youtube-id="RcmBLXTrBm4"
               data-video-name="Priya Menon"
               aria-label="Play video testimonial from Priya Menon">
               <img src="images/test.png" alt="Priya Menon" />
@@ -1662,10 +1636,8 @@
         <!-- Slide 2 -->
         <div class="tst-slide" data-index="2">
           <div class="tst-slide-media">
-            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
             <button type="button" class="tst-video-thumb"
-              data-video-src="videos/testimonials/sanjay-kumar.mp4"
-              data-video-poster="images/test.png"
+              data-youtube-id="_zfHtI5FzcY"
               data-video-name="Sanjay Kumar"
               aria-label="Play video testimonial from Sanjay Kumar">
               <img src="images/test.png" alt="Sanjay Kumar" />
@@ -1701,10 +1673,8 @@
         <!-- Slide 3 -->
         <div class="tst-slide" data-index="3">
           <div class="tst-slide-media">
-            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
             <button type="button" class="tst-video-thumb"
-              data-video-src="videos/testimonials/fatima-al-rashid.mp4"
-              data-video-poster="images/test.png"
+              data-youtube-id="iCG2ne2LPoE"
               data-video-name="Fatima Al-Rashid"
               aria-label="Play video testimonial from Fatima Al-Rashid">
               <img src="images/test.png" alt="Fatima Al-Rashid" />
@@ -1740,10 +1710,8 @@
         <!-- Slide 4 -->
         <div class="tst-slide" data-index="4">
           <div class="tst-slide-media">
-            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
             <button type="button" class="tst-video-thumb"
-              data-video-src="videos/testimonials/nisha-patel.mp4"
-              data-video-poster="images/test.png"
+              data-youtube-id="iper1Oo8Ihs"
               data-video-name="Nisha Patel"
               aria-label="Play video testimonial from Nisha Patel">
               <img src="images/test.png" alt="Nisha Patel" />
@@ -1803,8 +1771,11 @@
       <i class="fas fa-times"></i>
     </button>
     <div class="tstv-player-wrap">
-      <!-- <source> src is set/cleared dynamically via JS — see SECTION 6 in js/script.js -->
-      <video id="tstvVideo" class="tstv-video" controls playsinline></video>
+      <!-- src is set/cleared dynamically via JS — see SECTION 6 in js/script.js -->
+      <iframe id="tstvVideo" class="tstv-video" title="Testimonial video"
+        src="" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </div>
     <p class="tstv-caption" id="tstvCaption"></p>
   </div>

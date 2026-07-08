@@ -566,14 +566,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   function openVideoModal(btn) {
     if (!videoOverlay || !videoEl) return;
 
-    // Rebuild the <source> each time so switching testimonials mid-modal reloads cleanly.
-    videoEl.querySelectorAll('source').forEach(s => s.remove());
-    const source = document.createElement('source');
-    source.src  = btn.dataset.videoSrc;
-    source.type = 'video/mp4';
-    videoEl.appendChild(source);
-    videoEl.setAttribute('poster', btn.dataset.videoPoster || '');
-    videoEl.load();
+    // YouTube embed — autoplay is fine here since this only ever runs from
+    // a genuine user click, not on page load. The origin param matches this
+    // page's own URL, which YouTube's player requires to validate the embed
+    // (without it — or when the page is opened via file:// with no origin —
+    // playback fails with "Error 153: Video player configuration error").
+    const ytId = btn.dataset.youtubeId;
+    if (ytId) {
+      const origin = encodeURIComponent(window.location.origin);
+      videoEl.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&origin=${origin}`;
+    } else {
+      videoEl.src = 'about:blank';
+    }
 
     if (videoCaption) videoCaption.textContent = btn.dataset.videoName || '';
 
@@ -583,18 +587,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     isPaused = true;
     stopProgress();
-
-    // Muted-then-unmuted play attempt: this only ever runs from a user click,
-    // so browsers allow unmuted autoplay here — no sound plays without a click.
-    videoEl.muted = false;
-    videoEl.play().catch(() => {});
   }
 
   function closeVideoModal() {
     if (!videoOverlay || !videoEl) return;
-    videoEl.pause();
-    videoEl.querySelectorAll('source').forEach(s => s.remove());
-    videoEl.load();
+    // about:blank (rather than '', which reloads this same page in the iframe)
+    // actually stops YouTube playback.
+    videoEl.src = 'about:blank';
 
     videoOverlay.classList.remove('tstv-open');
     document.body.style.overflow = '';
