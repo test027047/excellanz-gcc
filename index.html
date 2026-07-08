@@ -7,7 +7,7 @@
   <link rel="icon" href="images/favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="css/style.css?v=3"/>
+  <link rel="stylesheet" href="css/style.css?v=4"/>
 </head>
 <body>
 
@@ -19,44 +19,20 @@
     </div>
   </div>
 
-<!-- MINIMAL HEADER -->
-<header class="top-header" id="topHeader">
-  <a href="/" class="header-logo">
-    <img src="images/logonew.png" alt="Excellanz Education" />
-  </a>
-  <div class="header-right">
-
-    <a href="tel:+971 4 273 7074" class="btn-call-now">
-      <i class="fas fa-phone-alt"></i>
-      <span>Call Now</span>
-    </a>
-
-  </div>
-</header>
-
 
   <!-- HERO SECTION — 3D Motion Banner -->
   <section class="hero" id="heroSection">
 
-    <!-- Particle canvas background -->
-    <canvas id="heroParticles"></canvas>
+    <!-- Background photo (graduation/education theme), light-washed to stay on-theme -->
+    <div class="hero-bg-image"></div>
 
-    <!-- Floating 3D geometric shapes -->
-    <div class="hero-floaters" id="heroFloaters">
-      <div class="floater floater-hex floater-1"></div>
-      <div class="floater floater-tri floater-2"></div>
-      <div class="floater floater-circle floater-3"></div>
-      <div class="floater floater-ring floater-4"></div>
-      <div class="floater floater-hex floater-5"></div>
-      <div class="floater floater-dot floater-6"></div>
-      <div class="floater floater-tri floater-7"></div>
-      <div class="floater floater-ring floater-8"></div>
-      <div class="floater floater-circle floater-9"></div>
-      <div class="floater floater-dot floater-10"></div>
+    <!-- Layered BG -->
+    <div class="hero-bg-decor">
+      <div class="hero-bg-orb hero-orb-1"></div>
+      <div class="hero-bg-orb hero-orb-2"></div>
+      <div class="hero-bg-orb hero-orb-3"></div>
+      <div class="hero-bg-grid"></div>
     </div>
-
-    <!-- Gradient mesh overlay -->
-    <div class="hero-gradient-mesh"></div>
 
     <div class="hero-inner">
 
@@ -115,7 +91,7 @@
               <i class="fas fa-headset"></i> Free Counselling
             </div>
             <h2 class="form-title">Start Your <span>Journey</span></h2>
-            <p class="form-subtitle">Get expert guidance — 100% free, no obligations</p>
+            <p class="form-subtitle">Get expert guidance — 100% free</p>
           </div>
 
           <form id="enquiryForm" novalidate>
@@ -242,7 +218,6 @@
   <div class="exz-trust-header">
     <span class="exz-trust-divider"></span>
     <p class="exz-trust-label">
-      <i class="fas fa-handshake"></i>
       Trusted University Partners & Global Accreditations
     </p>
     <span class="exz-trust-divider"></span>
@@ -460,7 +435,7 @@
   <div class="afl-section">
     <div class="afl-label-row">
       <span class="afl-divider"></span>
-      <p class="afl-label"><i class="fas fa-certificate"></i> Accreditations &amp; Recognitions</p>
+      <p class="afl-label"> Accreditations &amp; Recognitions</p>
       <span class="afl-divider"></span>
     </div>
 
@@ -983,17 +958,17 @@
       <div class="why-card-num">04</div>
       <div class="why-card-inner">
         <div class="why-icon-ring why-ring-green">
-          <i class="fas fa-briefcase"></i>
+          <i class="fas fa-chalkboard"></i>
         </div>
         <div class="why-card-content">
-          <h3 class="why-card-title">Career & Placement Support</h3>
+          <h3 class="why-card-title">Management Seminars with Industry Leaders</h3>
           <p class="why-card-text">
-            Dedicated placement assistance, internships, corporate tie-ups,
-            and 1-on-1 career counselling to land the right opportunity.
+            Stay updated on key industry trends through our weekly webinars
+            by industry experts.
           </p>
           <div class="why-tags">
-            <span class="why-tag-pill">Placements</span>
-            <span class="why-tag-pill">Mentoring</span>
+            <span class="why-tag-pill">Webinars</span>
+            <span class="why-tag-pill">Industry Leaders</span>
           </div>
         </div>
       </div>      
@@ -1132,7 +1107,7 @@
         <div class="adm-step-node">
           <div class="adm-step-ring"></div>
           <div class="adm-step-dot">
-            <i class="fas fa-file-alt"></i>
+            <i class="fas fa-headset"></i>
           </div>
         </div>
         <div class="adm-step-num">01</div>
@@ -1143,7 +1118,7 @@
         <div class="adm-step-node">
           <div class="adm-step-ring"></div>
           <div class="adm-step-dot">
-            <i class="fas fa-folder-open"></i>
+            <i class="fas fa-file-alt"></i>
           </div>
         </div>
         <div class="adm-step-num">02</div>
@@ -1154,7 +1129,7 @@
         <div class="adm-step-node">
           <div class="adm-step-ring"></div>
           <div class="adm-step-dot">
-            <i class="fas fa-headset"></i>
+            <i class="fas fa-folder-open"></i>
           </div>
         </div>
         <div class="adm-step-num">03</div>
@@ -1189,13 +1164,35 @@
   <div class="adm-cards" id="admCards">
 
     <!-- Step Card 1 -->
-    <div class="adm-card" data-index="0">
+    <div class="adm-card adm-card-highlight" data-index="0">
       <div class="adm-card-step-num">01</div>
       <div class="adm-card-icon-wrap adm-ic-1">
-        <i class="fas fa-file-alt"></i>
+        <i class="fas fa-headset"></i>
       </div>
       <div class="adm-card-body">
         <div class="adm-card-label">Step 1</div>
+        <h3 class="adm-card-title">Counselling Session</h3>
+        <p class="adm-card-text">
+          Get a personalized 1-on-1 session with our expert counsellors.
+          We help you pick the right program, timeline & study plan.
+        </p>
+        <ul class="adm-card-list">
+          <li><i class="fas fa-check"></i> Free career counselling</li>
+          <li><i class="fas fa-check"></i> Program match guidance</li>
+          <li><i class="fas fa-check"></i> Schedule via WhatsApp</li>
+        </ul>
+      </div>
+      <div class="adm-card-glow adm-glow-1"></div>
+    </div>
+
+    <!-- Step Card 2 -->
+    <div class="adm-card" data-index="1">
+      <div class="adm-card-step-num">02</div>
+      <div class="adm-card-icon-wrap adm-ic-2">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <div class="adm-card-body">
+        <div class="adm-card-label">Step 2</div>
         <h3 class="adm-card-title">Fill the Application</h3>
         <p class="adm-card-text">
           Complete our simple online application form in under 5 minutes.
@@ -1207,17 +1204,17 @@
           <li><i class="fas fa-check"></i> 100% online form</li>
         </ul>
       </div>
-      <div class="adm-card-glow adm-glow-1"></div>
+      <div class="adm-card-glow adm-glow-2"></div>
     </div>
 
-    <!-- Step Card 2 -->
-    <div class="adm-card" data-index="1">
-      <div class="adm-card-step-num">02</div>
-      <div class="adm-card-icon-wrap adm-ic-2">
+    <!-- Step Card 3 -->
+    <div class="adm-card" data-index="2">
+      <div class="adm-card-step-num">03</div>
+      <div class="adm-card-icon-wrap adm-ic-3">
         <i class="fas fa-folder-open"></i>
       </div>
       <div class="adm-card-body">
-        <div class="adm-card-label">Step 2</div>
+        <div class="adm-card-label">Step 3</div>
         <h3 class="adm-card-title">Submit Documents</h3>
         <p class="adm-card-text">
           Upload scanned copies of your required certificates and ID.
@@ -1227,28 +1224,6 @@
           <li><i class="fas fa-check"></i> Digital uploads only</li>
           <li><i class="fas fa-check"></i> 24–48 hr verification</li>
           <li><i class="fas fa-check"></i> Guided checklist provided</li>
-        </ul>
-      </div>
-      <div class="adm-card-glow adm-glow-2"></div>
-    </div>
-
-    <!-- Step Card 3 -->
-    <div class="adm-card adm-card-highlight" data-index="2">
-      <div class="adm-card-step-num">03</div>
-      <div class="adm-card-icon-wrap adm-ic-3">
-        <i class="fas fa-headset"></i>
-      </div>
-      <div class="adm-card-body">
-        <div class="adm-card-label">Step 3</div>
-        <h3 class="adm-card-title">Counselling Session</h3>
-        <p class="adm-card-text">
-          Get a personalized 1-on-1 session with our expert counsellors.
-          We help you pick the right program, timeline & study plan.
-        </p>
-        <ul class="adm-card-list">
-          <li><i class="fas fa-check"></i> Free career counselling</li>
-          <li><i class="fas fa-check"></i> Program match guidance</li>
-          <li><i class="fas fa-check"></i> Schedule via WhatsApp</li>
         </ul>
       </div>
       <div class="adm-card-glow adm-glow-3"></div>
@@ -1309,7 +1284,7 @@
         </div>
         <div>
           <h4 class="adm-banner-title">Ready to Begin? It Takes Just 5 Minutes.</h4>
-          <p class="adm-banner-sub">Join 50,000+ students already learning with Excellanz Education.</p>
+          <p class="adm-banner-sub">Join 2000+ students already learning with Excellanz Education.</p>
         </div>
       </div>
       <div class="adm-banner-actions">
@@ -1607,156 +1582,196 @@
 
         <!-- Slide 0 -->
         <div class="tst-slide tst-active" data-index="0">
-          <div class="tst-slide-quote">
-            <i class="fas fa-quote-left tst-q-icon"></i>
-            <p>Excellanz made my MBA journey seamless while working full-time in Dubai. The flexible schedule and expert faculty helped me balance everything effortlessly. A truly world-class education that opened global doors for me.</p>
+          <div class="tst-slide-media">
+            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
+            <button type="button" class="tst-video-thumb"
+              data-video-src="videos/testimonials/arjun-ramesh.mp4"
+              data-video-poster="images/test.png"
+              data-video-name="Arjun Ramesh"
+              aria-label="Play video testimonial from Arjun Ramesh">
+              <img src="images/test.png" alt="Arjun Ramesh" />
+              <span class="tst-play-badge"><i class="fas fa-play"></i></span>
+            </button>
           </div>
-          <!-- Person Info -->
-          <div class="tst-slide-footer">
-            <div class="tst-slide-person">
-              <div class="tst-person-av-ring">
-                <div class="tst-person-av">
-                  <img src="images/test.png" alt="Arjun Ramesh" />
+          <div class="tst-slide-body">
+            <div class="tst-slide-quote">
+              <i class="fas fa-quote-left tst-q-icon"></i>
+              <p>Excellanz made my MBA journey seamless while working full-time in Dubai. The flexible schedule and expert faculty helped me balance everything effortlessly. A truly world-class education that opened global doors for me.</p>
+            </div>
+            <!-- Person Info -->
+            <div class="tst-slide-footer">
+              <div class="tst-slide-person">
+                <div class="tst-person-info">
+                  <h5 class="tst-person-name">Arjun Ramesh</h5>
+                  <p class="tst-person-loc">
+                    <i class="fas fa-location-dot"></i> Dubai, UAE
+                  </p>
                 </div>
               </div>
-              <div class="tst-person-info">
-                <h5 class="tst-person-name">Arjun Ramesh</h5>
-                <p class="tst-person-loc">
-                  <i class="fas fa-location-dot"></i> Dubai, UAE
-                </p>
+              <div class="tst-slide-right">
+                <div class="tst-slide-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="tst-slide-course">MBA — Masters</span>
               </div>
-            </div>
-            <div class="tst-slide-right">
-              <div class="tst-slide-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <span class="tst-slide-course">MBA — Masters</span>
             </div>
           </div>
         </div>
 
         <!-- Slide 1 -->
         <div class="tst-slide" data-index="1">
-          <div class="tst-slide-quote">
-            <i class="fas fa-quote-left tst-q-icon"></i>
-            <p>Completed my BCA 100% online from Kochi. WES-recognized and opened international doors I never imagined. The support team was available around the clock — I never felt alone in my journey.</p>
+          <div class="tst-slide-media">
+            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
+            <button type="button" class="tst-video-thumb"
+              data-video-src="videos/testimonials/priya-menon.mp4"
+              data-video-poster="images/test.png"
+              data-video-name="Priya Menon"
+              aria-label="Play video testimonial from Priya Menon">
+              <img src="images/test.png" alt="Priya Menon" />
+              <span class="tst-play-badge"><i class="fas fa-play"></i></span>
+            </button>
           </div>
-          <div class="tst-slide-footer">
-            <div class="tst-slide-person">
-              <div class="tst-person-av-ring">
-                <div class="tst-person-av">
-                  <img src="images/test.png" alt="Priya Menon" />
+          <div class="tst-slide-body">
+            <div class="tst-slide-quote">
+              <i class="fas fa-quote-left tst-q-icon"></i>
+              <p>Completed my BCA 100% online from Kochi. WES-recognized and opened international doors I never imagined. The support team was available around the clock — I never felt alone in my journey.</p>
+            </div>
+            <div class="tst-slide-footer">
+              <div class="tst-slide-person">
+                <div class="tst-person-info">
+                  <h5 class="tst-person-name">Priya Menon</h5>
+                  <p class="tst-person-loc">
+                    <i class="fas fa-location-dot"></i> Kochi, India
+                  </p>
                 </div>
               </div>
-              <div class="tst-person-info">
-                <h5 class="tst-person-name">Priya Menon</h5>
-                <p class="tst-person-loc">
-                  <i class="fas fa-location-dot"></i> Kochi, India
-                </p>
+              <div class="tst-slide-right">
+                <div class="tst-slide-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="tst-slide-course">BCA — Bachelors</span>
               </div>
-            </div>
-            <div class="tst-slide-right">
-              <div class="tst-slide-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <span class="tst-slide-course">BCA — Bachelors</span>
             </div>
           </div>
         </div>
 
         <!-- Slide 2 -->
         <div class="tst-slide" data-index="2">
-          <div class="tst-slide-quote">
-            <i class="fas fa-quote-left tst-q-icon"></i>
-            <p>Pursuing my PhD from Riyadh was possible thanks to Excellanz's blended model and world-class supervisors. The international publications support was exceptional. Best decision of my academic career.</p>
+          <div class="tst-slide-media">
+            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
+            <button type="button" class="tst-video-thumb"
+              data-video-src="videos/testimonials/sanjay-kumar.mp4"
+              data-video-poster="images/test.png"
+              data-video-name="Sanjay Kumar"
+              aria-label="Play video testimonial from Sanjay Kumar">
+              <img src="images/test.png" alt="Sanjay Kumar" />
+              <span class="tst-play-badge"><i class="fas fa-play"></i></span>
+            </button>
           </div>
-          <div class="tst-slide-footer">
-            <div class="tst-slide-person">
-              <div class="tst-person-av-ring">
-                <div class="tst-person-av">
-                  <img src="images/test.png" alt="Sanjay Kumar" />
+          <div class="tst-slide-body">
+            <div class="tst-slide-quote">
+              <i class="fas fa-quote-left tst-q-icon"></i>
+              <p>Pursuing my PhD from Riyadh was possible thanks to Excellanz's blended model and world-class supervisors. The international publications support was exceptional. Best decision of my academic career.</p>
+            </div>
+            <div class="tst-slide-footer">
+              <div class="tst-slide-person">
+                <div class="tst-person-info">
+                  <h5 class="tst-person-name">Sanjay Kumar</h5>
+                  <p class="tst-person-loc">
+                    <i class="fas fa-location-dot"></i> Riyadh, Saudi Arabia
+                  </p>
                 </div>
               </div>
-              <div class="tst-person-info">
-                <h5 class="tst-person-name">Sanjay Kumar</h5>
-                <p class="tst-person-loc">
-                  <i class="fas fa-location-dot"></i> Riyadh, Saudi Arabia
-                </p>
+              <div class="tst-slide-right">
+                <div class="tst-slide-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="tst-slide-course">Ph.D — Doctorate</span>
               </div>
-            </div>
-            <div class="tst-slide-right">
-              <div class="tst-slide-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <span class="tst-slide-course">Ph.D — Doctorate</span>
             </div>
           </div>
         </div>
 
         <!-- Slide 3 -->
         <div class="tst-slide" data-index="3">
-          <div class="tst-slide-quote">
-            <i class="fas fa-quote-left tst-q-icon"></i>
-            <p>As a working mother in Abu Dhabi, I never thought higher education was possible again. Excellanz changed that completely. NAAC accredited, UK NARIC recognized — the counselling team was incredibly supportive.</p>
+          <div class="tst-slide-media">
+            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
+            <button type="button" class="tst-video-thumb"
+              data-video-src="videos/testimonials/fatima-al-rashid.mp4"
+              data-video-poster="images/test.png"
+              data-video-name="Fatima Al-Rashid"
+              aria-label="Play video testimonial from Fatima Al-Rashid">
+              <img src="images/test.png" alt="Fatima Al-Rashid" />
+              <span class="tst-play-badge"><i class="fas fa-play"></i></span>
+            </button>
           </div>
-          <div class="tst-slide-footer">
-            <div class="tst-slide-person">
-              <div class="tst-person-av-ring">
-                <div class="tst-person-av">
-                  <img src="images/test.png" alt="Fatima Al-Rashid" />
+          <div class="tst-slide-body">
+            <div class="tst-slide-quote">
+              <i class="fas fa-quote-left tst-q-icon"></i>
+              <p>As a working mother in Abu Dhabi, I never thought higher education was possible again. Excellanz changed that completely. NAAC accredited, UK NARIC recognized — the counselling team was incredibly supportive.</p>
+            </div>
+            <div class="tst-slide-footer">
+              <div class="tst-slide-person">
+                <div class="tst-person-info">
+                  <h5 class="tst-person-name">Fatima Al-Rashid</h5>
+                  <p class="tst-person-loc">
+                    <i class="fas fa-location-dot"></i> Abu Dhabi, UAE
+                  </p>
                 </div>
               </div>
-              <div class="tst-person-info">
-                <h5 class="tst-person-name">Fatima Al-Rashid</h5>
-                <p class="tst-person-loc">
-                  <i class="fas fa-location-dot"></i> Abu Dhabi, UAE
-                </p>
+              <div class="tst-slide-right">
+                <div class="tst-slide-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="tst-slide-course">MCA — Masters</span>
               </div>
-            </div>
-            <div class="tst-slide-right">
-              <div class="tst-slide-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-              <span class="tst-slide-course">MCA — Masters</span>
             </div>
           </div>
         </div>
 
         <!-- Slide 4 -->
         <div class="tst-slide" data-index="4">
-          <div class="tst-slide-quote">
-            <i class="fas fa-quote-left tst-q-icon"></i>
-            <p>My MSW is UK NARIC recognised — which was critical for my career in London. The faculty truly understands the international student experience and the placement support exceeded every expectation I had.</p>
+          <div class="tst-slide-media">
+            <!-- TODO: swap data-video-src for the real testimonial video, and the img src / data-video-poster for a real video thumbnail -->
+            <button type="button" class="tst-video-thumb"
+              data-video-src="videos/testimonials/nisha-patel.mp4"
+              data-video-poster="images/test.png"
+              data-video-name="Nisha Patel"
+              aria-label="Play video testimonial from Nisha Patel">
+              <img src="images/test.png" alt="Nisha Patel" />
+              <span class="tst-play-badge"><i class="fas fa-play"></i></span>
+            </button>
           </div>
-          <div class="tst-slide-footer">
-            <div class="tst-slide-person">
-              <div class="tst-person-av-ring">
-                <div class="tst-person-av">
-                  <img src="images/test.png" alt="Nisha Patel" />
+          <div class="tst-slide-body">
+            <div class="tst-slide-quote">
+              <i class="fas fa-quote-left tst-q-icon"></i>
+              <p>My MSW is UK NARIC recognised — which was critical for my career in London. The faculty truly understands the international student experience and the placement support exceeded every expectation I had.</p>
+            </div>
+            <div class="tst-slide-footer">
+              <div class="tst-slide-person">
+                <div class="tst-person-info">
+                  <h5 class="tst-person-name">Nisha Patel</h5>
+                  <p class="tst-person-loc">
+                    <i class="fas fa-location-dot"></i> London, UK
+                  </p>
                 </div>
               </div>
-              <div class="tst-person-info">
-                <h5 class="tst-person-name">Nisha Patel</h5>
-                <p class="tst-person-loc">
-                  <i class="fas fa-location-dot"></i> London, UK
-                </p>
+              <div class="tst-slide-right">
+                <div class="tst-slide-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="tst-slide-course">MSW — Masters</span>
               </div>
-            </div>
-            <div class="tst-slide-right">
-              <div class="tst-slide-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <span class="tst-slide-course">MSW — Masters</span>
             </div>
           </div>
         </div>
@@ -1776,6 +1791,24 @@
   </div><!-- end stage -->
 
 </section>
+
+<!-- =============================================
+     TESTIMONIAL VIDEO MODAL
+     Class prefix: tstv-
+     Opens on click of any .tst-video-thumb play button above.
+============================================= -->
+<div class="tstv-overlay" id="tstvOverlay">
+  <div class="tstv-modal">
+    <button type="button" class="tstv-close" id="tstvClose" aria-label="Close video">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="tstv-player-wrap">
+      <!-- <source> src is set/cleared dynamically via JS — see SECTION 6 in js/script.js -->
+      <video id="tstvVideo" class="tstv-video" controls playsinline></video>
+    </div>
+    <p class="tstv-caption" id="tstvCaption"></p>
+  </div>
+</div>
 
 <!-- =============================================
      SECTION 7: CONTACT / OFFICES
@@ -2221,11 +2254,8 @@
 <!-- Three.js first — Vanta depends on it -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
-<!-- Vanta NET effect (footer) -->
+<!-- Vanta NET effect (testimonials section) -->
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-
-<!-- Vanta GLOBE effect (hero) -->
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
 
 <script>
   VANTA.NET({
@@ -2244,31 +2274,10 @@
     spacing:         16.0,
     showDots:        false
   });
-
-  // Only show the 3D globe on desktop — too distracting on mobile
-  if (window.innerWidth > 1080) {
-    VANTA.GLOBE({
-      el: "#heroSection",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200,
-      minWidth: 200,
-      scale: 1.0,
-      scaleMobile: 1.0,
-      color:           0xD4AF37,
-      color2:          0xC99628,
-      backgroundColor: 0x0B1220,
-      size:            1.2,
-      points:          8.0,
-      maxDistance:      22.0,
-      spacing:         18.0
-    });
-  }
 </script>
 
 
 
-<script src="js/script.js?v=3"></script>
+<script src="js/script.js?v=4"></script>
 </body>
 </html>
